@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://qw5myfm34if1"]
+
+[ext_resource type="Texture2D" uid="uid://c5441chuujvxd" path="res://assets/sprites/car.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://ch2fhyab5tc8j" path="res://scripts/movement.gd" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://dsvjxhyqgx8s7" path="res://assets/sounds/drift1.wav" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://q36gcle5cnbb" path="res://scripts/soundhandlerPlayer.gd" id="4_dqkch"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vd41"]
+radius = 51.0
+height = 182.0
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1668277638]
+rotation = -0.001351542
+gravity_scale = 0.0
+linear_damp = 2.0
+angular_damp = 4.0
+
+[node name="Car" type="Sprite2D" parent="." unique_id=1441382588]
+rotation = 1.5707964
+scale = Vector2(0.50794625, 0.50794625)
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=946764497]
+rotation = 1.5707964
+scale = Vector2(0.50794625, 0.50794625)
+shape = SubResource("CapsuleShape2D_0vd41")
+
+[node name="movement" type="Node" parent="." unique_id=1317381263 node_paths=PackedStringArray("body", "driftsound")]
+script = ExtResource("2_g2els")
+body = NodePath("..")
+driftsound = NodePath("../drift")
+
+[node name="drift" type="AudioStreamPlayer2D" parent="." unique_id=2142509130]
+stream = ExtResource("3_qhqgy")
+pitch_scale = 0.85
+max_distance = 980.0
+max_polyphony = 10
+playback_type = 1
+
+[node name="soundhandler" type="Node2D" parent="." unique_id=1378148071]
+script = ExtResource("4_dqkch")

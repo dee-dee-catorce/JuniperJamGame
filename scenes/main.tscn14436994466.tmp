@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cbvw33uvefmik"]
+
+[ext_resource type="PackedScene" uid="uid://qw5myfm34if1" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c5upltraoadun" path="res://scenes/basic.tscn" id="1_sugp2"]
+[ext_resource type="Shader" uid="uid://cjeqdxqau0b4c" path="res://assets/shaders/pixel.gdshader" id="2_0wfyh"]
+[ext_resource type="AudioStream" uid="uid://dppqxanynt2t3" path="res://assets/sounds/music/placeholder.wav" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b2qjioy0rngux" path="res://scenes/timer.tscn" id="4_tbgi4"]
+[ext_resource type="Script" uid="uid://d3y0mbryq82uq" path="res://scripts/postProcessing.gd" id="5_o6xl0"]
+[ext_resource type="Shader" uid="uid://coengb1exmmm4" path="res://assets/shaders/fog.gdshader" id="5_tefeu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tbgi4"]
+shader = ExtResource("5_tefeu")
+shader_parameter/radius = 0.0
+shader_parameter/speed = 5.8800002793
+shader_parameter/effect_color = Color(0, 0, 0, 0.14117648)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vd41"]
+shader = ExtResource("2_0wfyh")
+shader_parameter/pixel_size = 3.0
+
+[node name="Node2D" type="Node2D" unique_id=1852519337]
+
+[node name="Placeholder" type="AudioStreamPlayer" parent="." unique_id=1305533873]
+stream = ExtResource("4_jyhfs")
+volume_db = -8.936
+autoplay = true
+
+[node name="StaticBody2D27" parent="." unique_id=1340658018 instance=ExtResource("1_sugp2")]
+position = Vector2(608, 1088)
+
+[node name="StaticBody2D28" parent="." unique_id=717282873 instance=ExtResource("1_sugp2")]
+position = Vector2(736, 1088)
+
+[node name="StaticBody2D29" parent="." unique_id=311617964 instance=ExtResource("1_sugp2")]
+position = Vector2(864, 1088)
+
+[node name="StaticBody2D10" parent="." unique_id=304806069 instance=ExtResource("1_sugp2")]
+position = Vector2(704, 256)
+
+[node name="StaticBody2D20" parent="." unique_id=974911719 instance=ExtResource("1_sugp2")]
+position = Vector2(568, 256)
+
+[node name="StaticBody2D11" parent="." unique_id=1263505346 instance=ExtResource("1_sugp2")]
+position = Vector2(832, 256)
+
+[node name="RigidBody2D" parent="." unique_id=1668277638 instance=ExtResource("1_o5qli")]
+position = Vector2(232.00006, 384)
+linear_damp = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D" unique_id=1345344092]
+scale = Vector2(11.977213, 14.670499)
+zoom = Vector2(0.4, 0.4)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.5
+rotation_smoothing_enabled = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1945926273]
+
+[node name="Control" parent="CanvasLayer2" unique_id=1964405672 instance=ExtResource("4_tbgi4")]
+
+[node name="PostProcessing" type="CanvasLayer" parent="." unique_id=1615014434 node_paths=PackedStringArray("fog")]
+script = ExtResource("5_o6xl0")
+fog = NodePath("Fog")
+
+[node name="Fog" type="ColorRect" parent="PostProcessing" unique_id=1112503090]
+material = SubResource("ShaderMaterial_tbgi4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.58456355, 0.58456355, 0.58456355, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="Pixel" type="ColorRect" parent="PostProcessing" unique_id=1867223155]
+material = SubResource("ShaderMaterial_0vd41")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.58456355, 0.58456355, 0.58456355, 0)
+metadata/_edit_use_anchors_ = true

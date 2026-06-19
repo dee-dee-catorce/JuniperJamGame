@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b2qjioy0rngux"]
+
+[ext_resource type="Theme" uid="uid://b05aho2w5i46p" path="res://assets/theme/timerTheme.tres" id="1_srplv"]
+[ext_resource type="Script" uid="uid://dk33dqxddsmlj" path="res://scripts/timerHandler.gd" id="2_5lxq6"]
+
+[node name="Control" type="Control" unique_id=1964405672]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1050638083]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_right = 0.65
+anchor_bottom = 0.13333334
+grow_horizontal = 2
+theme = ExtResource("1_srplv")
+bbcode_enabled = true
+text = "--:--"
+scroll_active = false
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1729250222]
+modulate = Color(1, 1, 1, 0.5254902)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.06875
+anchor_top = 0.84444445
+anchor_right = 0.60625
+anchor_bottom = 1.0986111
+grow_horizontal = 2
+theme = ExtResource("1_srplv")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "NOT ACTUALLY USING CASUNK MUSIC!!! JUST A PLACEHOLDER"
+fit_content = true
+scroll_active = false
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TimerHandler" type="Node" parent="." unique_id=75182509 node_paths=PackedStringArray("label")]
+script = ExtResource("2_5lxq6")
+timer = 90
+label = NodePath("../RichTextLabel")

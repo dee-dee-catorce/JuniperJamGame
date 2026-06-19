@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://b05aho2w5i46p"]
+
+[ext_resource type="FontFile" uid="uid://eijfjn7koj" path="res://assets/fonts/DS-DIGI.TTF" id="1_ksyp6"]
+
+[resource]
+RichTextLabel/font_sizes/normal_font_size = 85
+RichTextLabel/fonts/normal_font = ExtResource("1_ksyp6")
