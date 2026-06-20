@@ -11,7 +11,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tbgi4"]
 shader = ExtResource("5_tefeu")
-shader_parameter/radius = 1.0
+shader_parameter/radius = 0.0
 shader_parameter/speed = 6.9790003315025
 shader_parameter/effect_color = Color(0.3219481, 0, 0.077001266, 1)
 shader_parameter/transparency = 0.7650000363375
@@ -24,7 +24,7 @@ shader_parameter/pixel_size = 3.0
 
 [node name="Placeholder" type="AudioStreamPlayer" parent="." unique_id=1305533873]
 stream = ExtResource("4_jyhfs")
-volume_db = -8.936
+volume_db = -18.059
 
 [node name="death" type="AudioStreamPlayer" parent="." unique_id=1887499908]
 stream = ExtResource("2_tipki")
@@ -41,14 +41,11 @@ position = Vector2(736, 1088)
 [node name="StaticBody2D29" parent="." unique_id=311617964 instance=ExtResource("1_sugp2")]
 position = Vector2(864, 1088)
 
-[node name="StaticBody2D10" parent="." unique_id=304806069 instance=ExtResource("1_sugp2")]
-position = Vector2(704, 256)
+[node name="StaticBody2D56" parent="." unique_id=2012735044 instance=ExtResource("1_sugp2")]
+position = Vector2(1136, 1088)
 
-[node name="StaticBody2D20" parent="." unique_id=974911719 instance=ExtResource("1_sugp2")]
-position = Vector2(568, 256)
-
-[node name="StaticBody2D11" parent="." unique_id=1263505346 instance=ExtResource("1_sugp2")]
-position = Vector2(832, 256)
+[node name="StaticBody2D57" parent="." unique_id=881055832 instance=ExtResource("1_sugp2")]
+position = Vector2(1000, 1088)
 
 [node name="RigidBody2D" parent="." unique_id=1668277638 instance=ExtResource("1_o5qli")]
 position = Vector2(232.00006, 384)

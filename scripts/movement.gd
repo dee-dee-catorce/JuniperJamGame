@@ -12,7 +12,9 @@ var maxspeed: float = 10000 + Globals.speedUpgrade
 var body: RigidBody2D
 @export
 var driftsound: AudioStreamPlayer2D
+
 enum states {
+
 	idle,
 	driving,
 	drift,
@@ -51,10 +53,13 @@ func _process(delta: float) -> void:
 
 	statephy()
 	if drifting != driftdb:
+		driftsound.pitch_scale = randf_range(.8, 1.1)
 		driftsound.playing = drifting
 		driftdb = drifting
-	driftsound.volume_db = + body.angular_velocity * 2
-	driftsound.volume_db = clamp(driftsound.volume_db, 0, 2)
+
+
+	driftsound.volume_db = + body.angular_velocity * 1.5
+	driftsound.volume_db = clamp(driftsound.volume_db, -1, 0)
 	pass
 
 #initial switch
@@ -85,7 +90,9 @@ func statephy():
 			var force = direction * acceleration
 			body.apply_central_force(force)
 			body.apply_torque(difference * body.linear_velocity.length() * 10)
-			drifting = abs(body.angular_velocity) > 1.5
+
+
+			drifting = abs(body.angular_velocity) > 1.75
 				
 				
 			#body.rotation = direction.angle()

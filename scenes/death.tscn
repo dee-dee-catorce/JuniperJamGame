@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://uveehfbxaw1m"]
+
+[ext_resource type="Script" uid="uid://crhjal2pe8cam" path="res://scripts/death.gd" id="1_tjai8"]
+[ext_resource type="AudioStream" uid="uid://bly6slrmkj7mf" path="res://assets/sounds/music/We meet again.mp3" id="2_6up1m"]
+[ext_resource type="Shader" uid="uid://54gfhk7jxsqk" path="res://assets/shaders/death.gdshader" id="2_w8wr1"]
+[ext_resource type="Shader" uid="uid://cjeqdxqau0b4c" path="res://assets/shaders/pixel.gdshader" id="3_6up1m"]
+[ext_resource type="Theme" uid="uid://b05aho2w5i46p" path="res://assets/theme/timerTheme.tres" id="4_q1r8t"]
+[ext_resource type="Shader" uid="uid://cssfmsy1aaeem" path="res://assets/shaders/crt.gdshader" id="5_w0no0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0hhgj"]
+shader = ExtResource("2_w8wr1")
+shader_parameter/u_speed = 0.05
+shader_parameter/u_color_low = Color(0, 0, 0, 1)
+shader_parameter/u_color_mid_red = Color(0, 0, 0, 1)
+shader_parameter/u_color_high = Color(0.13333334, 0, 0.039215688, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7205l"]
+shader = ExtResource("5_w0no0")
+shader_parameter/brightness = 1.390000066025
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 1.1
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.14
+shader_parameter/corner_soften = 0.06
+shader_parameter/vignette = 0.38
+shader_parameter/scanline_strength = 0.95
+shader_parameter/scanline_density = 1.15
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.22
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 1.6
+shader_parameter/luma_smear_px = 2.2
+shader_parameter/jitter_px = 1.8
+shader_parameter/wobble_px = 1.5
+shader_parameter/tape_noise = 0.22
+shader_parameter/tape_lines = 0.35
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.25
+shader_parameter/glow_threshold = 0.65
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0no0"]
+shader = ExtResource("3_6up1m")
+shader_parameter/pixel_size = 3.0
+
+[node name="Node2D" type="Control" unique_id=563525267 node_paths=PackedStringArray("rich")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tjai8")
+rich = NodePath("postprocess/RichTextLabel2")
+
+[node name="DeathAgain" type="AudioStreamPlayer" parent="." unique_id=1739207300]
+stream = ExtResource("2_6up1m")
+volume_db = -0.33
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=708594285]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="postprocess" type="CanvasLayer" parent="." unique_id=114964131]
+
+[node name="shader" type="ColorRect" parent="postprocess" unique_id=1839499660]
+material = SubResource("ShaderMaterial_0hhgj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="postprocess" unique_id=2105440762]
+modulate = Color(1, 1, 1, 0.5254902)
+self_modulate = Color(0.4155498, 0, 0.029149836, 1)
+anchors_preset = -1
+anchor_left = 0.18125
+anchor_top = 0.16666667
+anchor_right = 0.8616327
+anchor_bottom = 0.56666666
+grow_horizontal = 2
+theme = ExtResource("4_q1r8t")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "USER FAILED TO MEET LOOP THRESHOLD BEFORE TIME EXPIRED
+
+USER STATUS: TERMINATED."
+fit_content = true
+scroll_active = false
+autowrap_trim_flags = 0
+visible_characters = 0
+visible_ratio = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Fog" type="ColorRect" parent="postprocess" unique_id=1608935379]
+material = SubResource("ShaderMaterial_7205l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26465687, 0.26465687, 0.26465687, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="Pixel" type="ColorRect" parent="postprocess" unique_id=434543274]
+material = SubResource("ShaderMaterial_w0no0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.58456355, 0.58456355, 0.58456355, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="crt" type="ColorRect" parent="postprocess" unique_id=1143172611]
+material = SubResource("ShaderMaterial_7205l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26465687, 0.26465687, 0.26465687, 0)
+
+[node name="del" type="ColorRect" parent="postprocess" unique_id=1191442642]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

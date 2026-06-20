@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ch2fhyab5tc8j" path="res://scripts/movement.gd" id="2_g2els"]
 [ext_resource type="AudioStream" uid="uid://dsvjxhyqgx8s7" path="res://assets/sounds/drift1.wav" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://q36gcle5cnbb" path="res://scripts/soundhandlerPlayer.gd" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://c7n07hwuiaaf1" path="res://assets/sounds/caracc.ogg" id="4_qlg0r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vd41"]
 radius = 51.0
@@ -16,11 +17,13 @@ linear_damp = 2.0
 angular_damp = 4.0
 
 [node name="Car" type="Sprite2D" parent="." unique_id=1441382588]
+position = Vector2(-0.0027030832, 1.9999983)
 rotation = 1.5707964
 scale = Vector2(0.50794625, 0.50794625)
 texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=946764497]
+position = Vector2(1.9999983, 0.002703083)
 rotation = 1.5707964
 scale = Vector2(0.50794625, 0.50794625)
 shape = SubResource("CapsuleShape2D_0vd41")
@@ -36,6 +39,12 @@ pitch_scale = 0.85
 max_distance = 980.0
 max_polyphony = 10
 playback_type = 1
+
+[node name="Car2" type="AudioStreamPlayer2D" parent="." unique_id=920803883]
+position = Vector2(-0.0013515415, 0.9999991)
+stream = ExtResource("4_qlg0r")
+volume_db = -17.495
+autoplay = true
 
 [node name="soundhandler" type="Node2D" parent="." unique_id=1378148071]
 script = ExtResource("4_dqkch")
