@@ -4,22 +4,26 @@
 [ext_resource type="AudioStream" uid="uid://bly6slrmkj7mf" path="res://assets/sounds/music/We meet again.mp3" id="2_6up1m"]
 [ext_resource type="Shader" uid="uid://54gfhk7jxsqk" path="res://assets/shaders/death.gdshader" id="2_w8wr1"]
 [ext_resource type="Shader" uid="uid://cjeqdxqau0b4c" path="res://assets/shaders/pixel.gdshader" id="3_6up1m"]
+[ext_resource type="Texture2D" uid="uid://dt07v7oo6mctj" path="res://assets/sprites/im eepy.png" id="4_7205l"]
 [ext_resource type="Theme" uid="uid://b05aho2w5i46p" path="res://assets/theme/timerTheme.tres" id="4_q1r8t"]
 [ext_resource type="Shader" uid="uid://cssfmsy1aaeem" path="res://assets/shaders/crt.gdshader" id="5_w0no0"]
+[ext_resource type="Texture2D" uid="uid://h7q8oboyj0aw" path="res://assets/sprites/theprototype.png" id="6_shhaa"]
+[ext_resource type="Shader" uid="uid://bs6b41aug8ra5" path="res://assets/shaders/impFrame.gdshader" id="9_3l7jp"]
+[ext_resource type="Script" uid="uid://bu5prreyrq3dy" path="res://scripts/sprSheetPlay.gd" id="9_shhaa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0hhgj"]
 shader = ExtResource("2_w8wr1")
-shader_parameter/u_speed = 0.05
+shader_parameter/u_speed = 0.5
 shader_parameter/u_color_low = Color(0, 0, 0, 1)
 shader_parameter/u_color_mid_red = Color(0, 0, 0, 1)
-shader_parameter/u_color_high = Color(0.13333334, 0, 0.039215688, 1)
+shader_parameter/u_color_high = Color(0.05388625, 0.059550367, 1.8049032e-08, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7205l"]
 shader = ExtResource("5_w0no0")
 shader_parameter/brightness = 1.390000066025
 shader_parameter/contrast = 1.08
 shader_parameter/saturation = 1.1
-shader_parameter/gamma = 1.05
+shader_parameter/gamma = 1.94200008572523
 shader_parameter/curvature = 0.14
 shader_parameter/corner_soften = 0.06
 shader_parameter/vignette = 0.38
@@ -36,12 +40,21 @@ shader_parameter/tape_noise = 0.22
 shader_parameter/tape_lines = 0.35
 shader_parameter/roll_speed = 0.1
 shader_parameter/roll_strength = 0.15
-shader_parameter/glow_strength = 0.25
+shader_parameter/glow_strength = 0.66800003173
 shader_parameter/glow_threshold = 0.65
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w0no0"]
 shader = ExtResource("3_6up1m")
 shader_parameter/pixel_size = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2m3wi"]
+shader = ExtResource("9_3l7jp")
+shader_parameter/threshold = 0.0
+shader_parameter/smoothness = 0.0
+shader_parameter/bg_color = Color(0, 0.10980392, 1, 1)
+shader_parameter/fg_color = Color(1, 0, 0, 1)
+shader_parameter/invert = true
+shader_parameter/intensity = 1.0
 
 [node name="Node2D" type="Control" unique_id=563525267 node_paths=PackedStringArray("rich")]
 layout_mode = 3
@@ -77,9 +90,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Yay" type="Sprite2D" parent="postprocess" unique_id=454736826]
+modulate = Color(1, 1, 1, 0.1764706)
+self_modulate = Color(0.49747366, 0.49747366, 0.49747366, 1)
+position = Vector2(1048, 592)
+rotation = 0.1088769
+scale = Vector2(2.0742576, 2.0742576)
+texture = ExtResource("4_7205l")
+hframes = 24
+script = ExtResource("9_shhaa")
+
+[node name="Yay2" type="Sprite2D" parent="postprocess" unique_id=1940356203]
+visible = false
+modulate = Color(1, 1, 1, 0.1764706)
+self_modulate = Color(0.49747366, 0.49747366, 0.49747366, 1)
+position = Vector2(240.00018, 520.00006)
+scale = Vector2(0.64079726, 0.64079726)
+texture = ExtResource("6_shhaa")
+hframes = 18
+script = ExtResource("9_shhaa")
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="postprocess" unique_id=2105440762]
 modulate = Color(1, 1, 1, 0.5254902)
-self_modulate = Color(0.4155498, 0, 0.029149836, 1)
+self_modulate = Color(0, 0.25833035, 0.07462167, 1)
 anchors_preset = -1
 anchor_left = 0.18125
 anchor_top = 0.16666667
@@ -89,9 +122,9 @@ grow_horizontal = 2
 theme = ExtResource("4_q1r8t")
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
-text = "USER FAILED TO MEET LOOP THRESHOLD BEFORE TIME EXPIRED
+text = "USER  APPEARS SUCK AT EVERYTHING APPARENTLY
 
-USER STATUS: TERMINATED."
+STATUS: TERMINATED"
 fit_content = true
 scroll_active = false
 autowrap_trim_flags = 0
@@ -129,6 +162,14 @@ grow_vertical = 2
 color = Color(0.26465687, 0.26465687, 0.26465687, 0)
 
 [node name="del" type="ColorRect" parent="postprocess" unique_id=1191442642]
+material = SubResource("ShaderMaterial_2m3wi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="postprocess" unique_id=1305522467]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

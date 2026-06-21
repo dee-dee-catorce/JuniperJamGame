@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://djo1s5j8hkfq3"]
+
+[ext_resource type="Script" uid="uid://bw4700f2aoujd" path="res://scripts/trackHandle.gd" id="1_ptguy"]
+[ext_resource type="Script" uid="uid://cburu6b4ckehs" path="res://addons/godot-rapier2d/custom_nodes/rapier_area_2d.gd" id="2_lh4pk"]
+
+[node name="track1" type="Node2D" unique_id=732674056]
+position = Vector2(48, 0)
+script = ExtResource("1_ptguy")
+
+[node name="end" type="Node2D" parent="." unique_id=1623674634]
+position = Vector2(0, -320)
+
+[node name="Marker2D" type="Marker2D" parent="end" unique_id=690694178]
+
+[node name="start" type="Node2D" parent="." unique_id=1269004562]
+
+[node name="Marker2D" type="Marker2D" parent="start" unique_id=1023776704]
+
+[node name="area" type="Area2D" parent="." unique_id=1264202932]
+script = ExtResource("2_lh4pk")
+metadata/_custom_type_script = "uid://cburu6b4ckehs"

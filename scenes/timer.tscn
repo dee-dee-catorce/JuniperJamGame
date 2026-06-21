@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2qjioy0rngux"]
 
-[ext_resource type="Theme" uid="uid://dgwc3qprfbflh" path="res://assets/theme/death.tres" id="1_5lxq6"]
+[ext_resource type="Script" uid="uid://5g6nb3augw1y" path="res://scripts/timerParent.gd" id="1_g5y8c"]
 [ext_resource type="Theme" uid="uid://b05aho2w5i46p" path="res://assets/theme/timerTheme.tres" id="1_srplv"]
 [ext_resource type="Script" uid="uid://dk33dqxddsmlj" path="res://scripts/timerHandler.gd" id="2_5lxq6"]
 
@@ -11,8 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_g5y8c")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1050638083]
+[node name="timer" type="RichTextLabel" parent="." unique_id=1050638083]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.35
@@ -27,27 +28,22 @@ scroll_active = false
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1729250222]
-visible = false
-modulate = Color(1, 1, 1, 0.5254902)
+[node name="speed" type="RichTextLabel" parent="." unique_id=1807231760]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.06875
-anchor_top = 0.84444445
-anchor_right = 0.60625
-anchor_bottom = 1.0986111
+anchor_left = 0.00625
+anchor_top = 0.8666667
+anchor_right = 0.30625
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme = ExtResource("1_5lxq6")
-theme_override_font_sizes/normal_font_size = 60
+offset_transform_enabled = true
+theme = ExtResource("1_srplv")
 bbcode_enabled = true
-text = "MUSIC IS PLACEHOLDER!!!!!"
-fit_content = true
+text = "--:--"
 scroll_active = false
-autowrap_trim_flags = 0
-horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TimerHandler" type="Node" parent="." unique_id=75182509 node_paths=PackedStringArray("label")]
 script = ExtResource("2_5lxq6")
-timer = 60
-label = NodePath("../RichTextLabel")
+timer = 40
+label = NodePath("../timer")

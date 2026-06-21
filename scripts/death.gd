@@ -1,15 +1,25 @@
 extends Control
 @export var rich: RichTextLabel
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await get_tree().create_timer(.2).timeout
+	eastereggs()
+	await get_tree().create_timer(.05).timeout
+	$postprocess/ColorRect2.queue_free()
+	await get_tree().create_timer(.1).timeout
 	$postprocess/del.queue_free()
 	reveaL()
 	flash()
+
+
 	pass # Replace with function body.
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("r"):
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -26,3 +36,12 @@ func flash():
 		rich.visible = false
 		
 	pass
+
+func eastereggs():
+	var num = randi_range(1, 100)
+	if num >= 90:
+		pass
+	else:
+		$postprocess/Yay.queue_free()
+		pass
+	pass # Replace with function body.

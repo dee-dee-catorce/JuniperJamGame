@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dfxeergy3oxsj"]
+
+[ext_resource type="Texture2D" uid="uid://botnpcsj5r327" path="res://assets/sprites/testSpritesheet.png" id="1_47enk"]
+[ext_resource type="Script" uid="uid://b03fq83nrx1os" path="res://scripts/tilemap.gd" id="2_jx7lj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_af04h"]
+texture = ExtResource("1_47enk")
+4:14/0 = 0
+1:14/next_alternative_id = 2
+1:14/0 = 0
+1:14/1 = 1
+
+[sub_resource type="TileSet" id="TileSet_4guo7"]
+sources/0 = SubResource("TileSetAtlasSource_af04h")
+
+[node name="TileMap" type="TileMap" unique_id=1045835242]
+scale = Vector2(2.2429817, 2.2429817)
+tile_set = SubResource("TileSet_4guo7")
+format = 2
+script = ExtResource("2_jx7lj")

@@ -12,7 +12,8 @@ var maxspeed: float = 10000 + Globals.speedUpgrade
 var body: RigidBody2D
 @export
 var driftsound: AudioStreamPlayer2D
-
+@export
+var accel: AudioStreamPlayer2D
 enum states {
 
 	idle,
@@ -33,6 +34,8 @@ var drifting = false
 var driftdb = false
 func _ready() -> void:
 	if Globals.devMode: print("initialized")
+
+	accel.pitch_scale = 1
 	pass
 
 
@@ -57,7 +60,8 @@ func _process(delta: float) -> void:
 		driftsound.playing = drifting
 		driftdb = drifting
 
-
+	accel.pitch_scale = (abs(body.linear_velocity.length()) / 1000) + .1
+	accel.pitch_scale = clamp(accel.pitch_scale, .51, 3.51)
 	driftsound.volume_db = + body.angular_velocity * 1.5
 	driftsound.volume_db = clamp(driftsound.volume_db, -1, 0)
 	pass
@@ -89,8 +93,8 @@ func statephy():
 				#print(target)
 			var force = direction * acceleration
 			body.apply_central_force(force)
+			#body.apply_torque(200009)
 			body.apply_torque(difference * body.linear_velocity.length() * 10)
-
 
 			drifting = abs(body.angular_velocity) > 1.75
 				
@@ -100,3 +104,9 @@ func statephy():
 #unity thing
 func minPosAngleDiff(target: float, current: float) -> float:
 	return atan2(sin(target - current), cos(target - current))
+
+
+func nm(value: float, min_val: float, max_val: float) -> float:
+	if min_val == max_val:
+		return 0.0
+	return (value - min_val) / (max_val - min_val)
