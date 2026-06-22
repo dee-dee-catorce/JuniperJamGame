@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c2it6ja8valyt"]
+
+[ext_resource type="Script" uid="uid://vjkd2w841stj" path="res://scripts/playerhuman.gd" id="1_sce46"]
+[ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="1_ybmhf"]
+[ext_resource type="Texture2D" uid="uid://cmqmy1eah34pb" path="res://assets/sprites/overworldsprite1.png" id="2_ch7bk"]
+[ext_resource type="AudioStream" uid="uid://brsn2t41cqhw8" path="res://assets/sounds/bfsl-minifigfoots1.mp3" id="4_ybmhf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vd41"]
+radius = 16.0
+
+[node name="playerhuman" type="RigidBody2D" unique_id=428783435]
+gravity_scale = 0.0
+linear_damp = 6.0
+angular_damp = 4.0
+script = ExtResource("1_ybmhf")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Overworldsprite1" type="Sprite2D" parent="." unique_id=713352700]
+texture_filter = 1
+position = Vector2(5.9604645e-08, 0)
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("2_ch7bk")
+offset = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=176148023]
+shape = SubResource("CircleShape2D_0vd41")
+
+[node name="movement" type="Node" parent="." unique_id=1075752403 node_paths=PackedStringArray("spr", "body", "accel")]
+script = ExtResource("1_sce46")
+speed = 150.0
+spr = NodePath("../Overworldsprite1")
+body = NodePath("..")
+accel = NodePath("../Step")
+
+[node name="Step" type="AudioStreamPlayer2D" parent="." unique_id=1295084855]
+stream = ExtResource("4_ybmhf")
+parameters/looping = false

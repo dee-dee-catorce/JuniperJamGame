@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://b8fmi1du622fp" path="res://scripts/trackGeneration.gd" id="1_6xcl0"]
 
-[node name="Node2D" type="Node2D" unique_id=1647004705]
+[node name="track" type="Node2D" unique_id=1647004705]
 script = ExtResource("1_6xcl0")

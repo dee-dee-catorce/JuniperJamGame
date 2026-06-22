@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://dsvjxhyqgx8s7" path="res://assets/sounds/drift1.wav" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://q36gcle5cnbb" path="res://scripts/soundhandlerPlayer.gd" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://c7n07hwuiaaf1" path="res://assets/sounds/caracc.ogg" id="4_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://crmc5yepehsi8" path="res://assets/sprites/expie.png" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0vd41"]
 radius = 51.0
@@ -58,12 +57,3 @@ autoplay = true
 
 [node name="soundhandler" type="Node2D" parent="." unique_id=1378148071]
 script = ExtResource("4_dqkch")
-
-[node name="Expie" type="Sprite2D" parent="." unique_id=1626333641]
-visible = false
-texture_filter = 1
-position = Vector2(0, -3)
-scale = Vector2(2.2499998, 2.3125)
-texture = ExtResource("7_fjrip")
-flip_h = true
-hframes = 2

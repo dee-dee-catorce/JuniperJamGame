@@ -1,20 +1,20 @@
-[gd_scene format=3 uid="uid://djo1s5j8hkfq3"]
+[gd_scene format=3 uid="uid://c1x4203r5maj6"]
 
-[ext_resource type="Script" uid="uid://bw4700f2aoujd" path="res://scripts/trackHandle.gd" id="1_ptguy"]
-[ext_resource type="Script" uid="uid://cburu6b4ckehs" path="res://addons/godot-rapier2d/custom_nodes/rapier_area_2d.gd" id="2_lh4pk"]
+[ext_resource type="Script" uid="uid://bw4700f2aoujd" path="res://scripts/trackHandle.gd" id="1_k7qji"]
+[ext_resource type="Script" uid="uid://cburu6b4ckehs" path="res://addons/godot-rapier2d/custom_nodes/rapier_area_2d.gd" id="2_6anlv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vd41"]
 size = Vector2(320, 853.56165)
 
 [node name="track1" type="Node2D" unique_id=732674056 node_paths=PackedStringArray("start", "end", "trigger")]
 scale = Vector2(1, 1.0052121)
-script = ExtResource("1_ptguy")
+script = ExtResource("1_k7qji")
 start = NodePath("start")
 end = NodePath("end")
 trigger = NodePath("area")
 
 [node name="end" type="Node2D" parent="." unique_id=1623674634]
-position = Vector2(0, -851.56165)
+position = Vector2(-319.99994, -1273.3633)
 rotation = 0.35280627
 
 [node name="Marker2D" type="Marker2D" parent="end" unique_id=690694178]
@@ -24,15 +24,26 @@ rotation = 0.35280627
 [node name="Marker2D" type="Marker2D" parent="start" unique_id=1023776704]
 
 [node name="area" type="Area2D" parent="." unique_id=1264202932]
-script = ExtResource("2_lh4pk")
+script = ExtResource("2_6anlv")
 metadata/_custom_type_script = "uid://cburu6b4ckehs"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area" unique_id=1089060866]
 position = Vector2(0, -424.7808)
 shape = SubResource("RectangleShape2D_0vd41")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="area" unique_id=1163784741]
+position = Vector2(-320, -851.56146)
+shape = SubResource("RectangleShape2D_0vd41")
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1035398923]
 offset_left = -160.0
 offset_top = -851.56165
 offset_right = 160.0
+color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1995910620]
+offset_left = -480.0
+offset_top = -1273.363
+offset_right = -160.0
+offset_bottom = -421.8014
 color = Color(0.2520276, 0.25202766, 0.25202763, 1)

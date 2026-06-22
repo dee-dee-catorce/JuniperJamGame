@@ -14,10 +14,7 @@ func _ready() -> void:
 	pass
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("r"):
-		get_tree().reload_current_scene()
-	pass
+
 func generateNoise():
 	for x in 200:
 		for y in 100:

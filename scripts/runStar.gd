@@ -1,21 +1,17 @@
-extends Control
-@onready
-var speedometer = $speed
+extends Area2D
 
-@export
-var body: RigidBody2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	speedometer.text = str(
-			snappedf(
-				abs(body.linear_velocity.length()),
-				1
-			) / 10
-		) + " / U"
 	pass
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "playerhuman":
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
+	pass # Replace with function body.

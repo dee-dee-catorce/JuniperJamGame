@@ -14,13 +14,22 @@ func _process(_delta: float) -> void:
 
 
 func timerupd(timer: int):
-	if timer != -1:
+	if timer > -1:
 		var tween := create_tween()
 		var targetrad = (1.0 / (float(timer) / 8))
-		tween.tween_property(fog.material, "shader_parameter/radius", targetrad, 1.5)
+		tween.tween_property(fog.material, "shader_parameter/radius", targetrad, .5)
 		var tween2 := create_tween()
-		tween2.tween_property(sound, "volume_db", -timer, 1.5)
+		tween2.tween_property(sound, "volume_db", -timer, .5)
+		
+
+		#it took my ears being destroyed for me to add this
+
+		sound.volume_db = clamp(sound.volume_db, -INF, 1.5)
+
 	else:
+		var tween := create_tween()
+		var targetrad = (1.0 / (float(timer) / 8))
+		tween.tween_property(fog.material, "shader_parameter/radius", 1, .0)
 		Globals.dead = true
 		#fog.material.set_shader_parameter("transparency",1)
 		get_tree().change_scene_to_file("res://scenes/death.tscn")

@@ -4,8 +4,6 @@
 [ext_resource type="Theme" uid="uid://b05aho2w5i46p" path="res://assets/theme/timerTheme.tres" id="1_srplv"]
 [ext_resource type="Script" uid="uid://dk33dqxddsmlj" path="res://scripts/timerHandler.gd" id="2_5lxq6"]
 [ext_resource type="AudioStream" uid="uid://ddf3an08elxkd" path="res://assets/sounds/RunStart.ogg" id="4_bi5oq"]
-[ext_resource type="AudioStream" uid="uid://h3waj4qpngdx" path="res://assets/sounds/Click.ogg" id="5_uktcg"]
-[ext_resource type="AudioStream" uid="uid://capikeowig3m2" path="res://assets/sounds/woomb.ogg" id="6_qso1l"]
 
 [node name="Control" type="Control" unique_id=1964405672]
 layout_mode = 3
@@ -19,7 +17,8 @@ script = ExtResource("1_g5y8c")
 [node name="timer" type="RichTextLabel" parent="." unique_id=1050638083]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
+anchor_left = 0.13125
+anchor_right = 0.86875
 anchor_bottom = 0.13333334
 grow_horizontal = 2
 offset_transform_enabled = true
@@ -45,28 +44,13 @@ text = "--:--"
 scroll_active = false
 metadata/_edit_use_anchors_ = true
 
-[node name="TimerHandler" type="Node" parent="." unique_id=75182509 node_paths=PackedStringArray("label", "sound", "sound2", "sound3")]
+[node name="TimerHandler" type="Node" parent="." unique_id=75182509 node_paths=PackedStringArray("label", "sound")]
 script = ExtResource("2_5lxq6")
 timer = 40
 label = NodePath("../timer")
 sound = NodePath("../RunStart")
-sound2 = NodePath("../RunStart/Click")
-sound3 = NodePath("../RunStart/woomb")
 
 [node name="RunStart" type="AudioStreamPlayer2D" parent="." unique_id=2034863796]
 position = Vector2(640, 336)
 stream = ExtResource("4_bi5oq")
 volume_db = 8.748
-max_distance = 1.2312312e+16
-
-[node name="Click" type="AudioStreamPlayer2D" parent="RunStart" unique_id=1798907943]
-stream = ExtResource("5_uktcg")
-volume_db = 8.748
-max_distance = 1.2312312e+16
-max_polyphony = 3
-
-[node name="woomb" type="AudioStreamPlayer2D" parent="RunStart" unique_id=929341457]
-stream = ExtResource("6_qso1l")
-volume_db = 1.5
-max_distance = 1.2312312e+16
-max_polyphony = 3

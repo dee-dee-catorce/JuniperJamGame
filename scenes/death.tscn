@@ -18,6 +18,10 @@ shader_parameter/u_color_low = Color(0, 0, 0, 1)
 shader_parameter/u_color_mid_red = Color(0, 0, 0, 1)
 shader_parameter/u_color_high = Color(0.05388625, 0.059550367, 1.8049032e-08, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0no0"]
+shader = ExtResource("3_6up1m")
+shader_parameter/pixel_size = 3.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7205l"]
 shader = ExtResource("5_w0no0")
 shader_parameter/brightness = 1.390000066025
@@ -42,9 +46,6 @@ shader_parameter/roll_speed = 0.1
 shader_parameter/roll_strength = 0.15
 shader_parameter/glow_strength = 0.66800003173
 shader_parameter/glow_threshold = 0.65
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0no0"]
-shader = ExtResource("3_6up1m")
 shader_parameter/pixel_size = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2m3wi"]
@@ -122,9 +123,9 @@ grow_horizontal = 2
 theme = ExtResource("4_q1r8t")
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
-text = "USER  APPEARS SUCK AT EVERYTHING APPARENTLY
+text = "USER APPEARS TO SUCK AT EVERYTHING APPARENTLY
 
-STATUS: TERMINATED"
+STATUS: FAILURE"
 fit_content = true
 scroll_active = false
 autowrap_trim_flags = 0
@@ -133,7 +134,7 @@ visible_ratio = 0.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Fog" type="ColorRect" parent="postprocess" unique_id=1608935379]
-material = SubResource("ShaderMaterial_7205l")
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -143,6 +144,7 @@ color = Color(0.26465687, 0.26465687, 0.26465687, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="Pixel" type="ColorRect" parent="postprocess" unique_id=434543274]
+visible = false
 material = SubResource("ShaderMaterial_w0no0")
 anchors_preset = 15
 anchor_right = 1.0

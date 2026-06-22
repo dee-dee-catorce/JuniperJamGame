@@ -17,9 +17,7 @@ func _process(delta: float) -> void:
 	var target = player.global_position + mouse_offset
 	global_position = global_position.lerp(target, lerp_speed * delta)
 
-	var speedzoom = abs(player.linear_velocity.length()) / 2000
-	targSize = .5 - speedzoom
-	targSize = clamp(targSize, .3, .5)
+
 	zoom = lerp(zoom, Vector2(targSize, targSize), .02)
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("r"):

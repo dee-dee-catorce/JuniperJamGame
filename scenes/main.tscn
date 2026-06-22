@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://cbvw33uvefmik"]
 
+[ext_resource type="AudioStream" uid="uid://ctilvpbtqpvtt" path="res://assets/sounds/music/song1.ogg" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://qw5myfm34if1" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Shader" uid="uid://cjeqdxqau0b4c" path="res://assets/shaders/pixel.gdshader" id="2_0wfyh"]
-[ext_resource type="AudioStream" uid="uid://0xdbw42t3gub" path="res://assets/sounds/music/PLACEHOLDER.mp3" id="2_tipki"]
-[ext_resource type="AudioStream" uid="uid://dppqxanynt2t3" path="res://assets/sounds/music/placeholder.wav" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://co2rxq8vqling" path="res://scripts/main.gd" id="1_trceg"]
+[ext_resource type="AudioStream" uid="uid://bjia7d3owc8je" path="res://assets/sounds/music/deathsdoor.ogg" id="3_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b2qjioy0rngux" path="res://scenes/timer.tscn" id="4_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dljnbif41qu3n" path="res://scenes/tracks/track.tscn" id="4_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://dljnbif41qu3n" path="res://scenes/track.tscn" id="4_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://b7rc6q67necvs" path="res://scenes/arrows.tscn" id="5_eb6dy"]
 [ext_resource type="Script" uid="uid://d3y0mbryq82uq" path="res://scripts/postProcessing.gd" id="5_o6xl0"]
 [ext_resource type="Shader" uid="uid://coengb1exmmm4" path="res://assets/shaders/fog.gdshader" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://clh3a1d5fslcm" path="res://scenes/spinning.tscn" id="6_choun"]
 [ext_resource type="Script" uid="uid://jche1e7ujcci" path="res://scripts/camHandler.gd" id="10_choun"]
+[ext_resource type="Script" uid="uid://cltkk38ufb033" path="res://scripts/button.gd" id="10_trceg"]
 [ext_resource type="Shader" uid="uid://cssfmsy1aaeem" path="res://assets/shaders/crt.gdshader" id="11_eb6dy"]
+[ext_resource type="Shader" uid="uid://54gfhk7jxsqk" path="res://assets/shaders/death.gdshader" id="12_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://bv2r7wareven2" path="res://assets/sprites/the cute one.png" id="14_jkv2x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tbgi4"]
 shader = ExtResource("5_tefeu")
 shader_parameter/radius = 0.0
 shader_parameter/speed = 6.9790003315025
 shader_parameter/effect_color = Color(0.3219481, 0, 0.077001266, 1)
-shader_parameter/transparency = 0.7650000363375
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vd41"]
-shader = ExtResource("2_0wfyh")
-shader_parameter/pixel_size = 3.0
+shader_parameter/transparency = 0.6000000285
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trceg"]
 shader = ExtResource("11_eb6dy")
@@ -29,45 +29,57 @@ shader_parameter/brightness = 1.2400000589
 shader_parameter/contrast = 1.234000058615
 shader_parameter/saturation = 1.1
 shader_parameter/gamma = 1.05
-shader_parameter/curvature = 0.1050000049875
-shader_parameter/corner_soften = 0.0730000034675
-shader_parameter/vignette = 0.11600000551
-shader_parameter/scanline_strength = 0.330000015675
-shader_parameter/scanline_density = 1.15
+shader_parameter/curvature = 0.0570000027075
+shader_parameter/corner_soften = 0.04400000209
+shader_parameter/vignette = 0.0
+shader_parameter/scanline_strength = 0.17600000836
+shader_parameter/scanline_density = 1.370000041325
 shader_parameter/interlace_strength = 0.0
 shader_parameter/mask_strength = 0.0
-shader_parameter/mask_scale = 1.0
-shader_parameter/chroma_offset_px = 0.7910000375725
+shader_parameter/mask_scale = 0.5
+shader_parameter/chroma_offset_px = 0.3950000187625
 shader_parameter/luma_smear_px = 0.0
-shader_parameter/jitter_px = 1.5360000729599999
-shader_parameter/wobble_px = 1.5
+shader_parameter/jitter_px = 0.6570000312075
+shader_parameter/wobble_px = 1.2800000608
 shader_parameter/tape_noise = 0.0
 shader_parameter/tape_lines = 0.0
 shader_parameter/roll_speed = 0.0
 shader_parameter/roll_strength = 0.0
 shader_parameter/glow_strength = 0.0
 shader_parameter/glow_threshold = 0.27600001311
+shader_parameter/pixel_size = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a8y0u"]
+shader = ExtResource("12_eb6dy")
+shader_parameter/u_speed = 0.1
+shader_parameter/u_color_low = Color(0.9302923, 0.29571044, 0, 1)
+shader_parameter/u_color_mid_red = Color(0.32694542, 0.13570106, 0.11584345, 1)
+shader_parameter/u_color_high = Color(0, 0.56133294, 0.10906365, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1852519337]
+script = ExtResource("1_trceg")
 
 [node name="Placeholder" type="AudioStreamPlayer" parent="." unique_id=1305533873]
-stream = ExtResource("4_jyhfs")
-volume_db = -19.814
-autoplay = true
+stream = ExtResource("1_eb6dy")
+volume_db = -22.045
+parameters/looping = true
 
 [node name="death" type="AudioStreamPlayer" parent="." unique_id=1887499908]
-stream = ExtResource("2_tipki")
-volume_db = -14.52
+stream = ExtResource("3_a8y0u")
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
-[node name="Node2D" parent="." unique_id=1647004705 instance=ExtResource("4_ya4ey")]
-visible = false
-position = Vector2(-2872, -1520)
+[node name="Node2D2" parent="." unique_id=52920907 instance=ExtResource("4_ya4ey")]
+scale = Vector2(3, 3)
 
 [node name="player" parent="." unique_id=1668277638 instance=ExtResource("1_o5qli")]
-position = Vector2(232.00006, 384)
+position = Vector2(-7.4487616e-09, 72)
 linear_damp = 1.0
+
+[node name="arrows" parent="player" unique_id=997288175 node_paths=PackedStringArray("track") instance=ExtResource("5_eb6dy")]
+scale = Vector2(1.2188697, 1.2188697)
+track = NodePath("../../Node2D2")
 
 [node name="PostProcessing" type="CanvasLayer" parent="." unique_id=1615014434 node_paths=PackedStringArray("fog", "sound")]
 script = ExtResource("5_o6xl0")
@@ -84,23 +96,10 @@ grow_vertical = 2
 color = Color(0.26465687, 0.26465687, 0.26465687, 0)
 metadata/_edit_use_anchors_ = true
 
-[node name="StaticBody2D" parent="." unique_id=1819866956 instance=ExtResource("6_choun")]
-position = Vector2(2904, -776)
-
 [node name="PostProcessingLayer2" type="CanvasLayer" parent="." unique_id=1945926273]
 
 [node name="Control" parent="PostProcessingLayer2" unique_id=1964405672 node_paths=PackedStringArray("body") instance=ExtResource("4_tbgi4")]
 body = NodePath("../../player")
-
-[node name="Pixel" type="ColorRect" parent="PostProcessingLayer2" unique_id=833448960]
-material = SubResource("ShaderMaterial_0vd41")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.58456355, 0.58456355, 0.58456355, 0)
-metadata/_edit_use_anchors_ = true
 
 [node name="crt" type="ColorRect" parent="PostProcessingLayer2" unique_id=535071521]
 material = SubResource("ShaderMaterial_trceg")
@@ -111,8 +110,19 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.26465687, 0.26465687, 0.26465687, 0)
 
+[node name="Button" type="Button" parent="PostProcessingLayer2" unique_id=1378126515]
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.12222222
+anchor_right = 0.21875
+anchor_bottom = 0.3
+offset_bottom = -1.5258789e-05
+text = "the FUCK YOU button"
+script = ExtResource("10_trceg")
+metadata/_edit_use_anchors_ = true
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1345344092 node_paths=PackedStringArray("player")]
-position = Vector2(232.00006, 384)
+position = Vector2(-2.1684043e-19, -8)
 rotation = 0.0112316385
 scale = Vector2(13.489856, 6.027591)
 zoom = Vector2(4, 4)
@@ -122,4 +132,27 @@ rotation_smoothing_enabled = true
 script = ExtResource("10_choun")
 player = NodePath("../player")
 max_offset = 200.0
-targSize = 0.4
+lerp_speed = 9.0
+targSize = 0.2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1721677779]
+layer = -10
+
+[node name="shader" type="ColorRect" parent="CanvasLayer" unique_id=1618958032]
+material = SubResource("ShaderMaterial_a8y0u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TheCuteOne" type="Sprite2D" parent="CanvasLayer" unique_id=1676421471]
+visible = false
+position = Vector2(665.25, 505)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_jkv2x")
+
+[node name="StaticBody2D" parent="." unique_id=1819866956 instance=ExtResource("6_choun")]
+position = Vector2(1496, -1560)
+
+[connection signal="pressed" from="PostProcessingLayer2/Button" to="PostProcessingLayer2/Button" method="_on_pressed"]

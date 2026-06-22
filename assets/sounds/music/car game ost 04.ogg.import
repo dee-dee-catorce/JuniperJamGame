@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://i3608ni04ftl"
+path="res://.godot/imported/car game ost 04.ogg-1748db342fa4d90e6694116a5f0533a9.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/music/car game ost 04.ogg"
+dest_files=["res://.godot/imported/car game ost 04.ogg-1748db342fa4d90e6694116a5f0533a9.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

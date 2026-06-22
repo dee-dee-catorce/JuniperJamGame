@@ -1,6 +1,6 @@
 extends Node
 
-var devMode = true
+var devMode = false
 var speedUpgrade: float = 0
 var accelerationUp: float = 100
 

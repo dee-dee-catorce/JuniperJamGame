@@ -65,6 +65,9 @@ uniform float roll_strength : hint_range(0.0, 0.6) = 0.15;
 // --- Cheap bloom-ish glow ---
 uniform float glow_strength : hint_range(0.0, 2.0) = 0.25;
 uniform float glow_threshold : hint_range(0.0, 1.0) = 0.65;
+uniform float pixel_size = 8.0;
+
+
 
 float hash11(float n) {
 	return fract(sin(n) * 43758.5453123);
@@ -121,14 +124,17 @@ vec3 triad_mask(vec2 frag_xy) {
 }
 
 vec3 sample_screen(vec2 uv) {
-	return textureLod(screen_texture, uv, 0.0).rgb;
+    vec2 texel = 1.0 / vec2(textureSize(screen_texture, 0));
+    vec2 block = texel * pixel_size;
+    uv = floor(uv / block) * block;
+    return textureLod(screen_texture, uv, 0.0).rgb;
 }
 
 void fragment() {
 	vec2 px = SCREEN_PIXEL_SIZE;
 	vec2 res = 1.0 / px;
 	float t = TIME;
-
+	
 	// Start from screen UV.
 	vec2 uv = SCREEN_UV;
 

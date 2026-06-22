@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b7rc6q67necvs"]
+
+[ext_resource type="Script" uid="uid://dvfm6jaovwxdc" path="res://scripts/arrows.gd" id="1_ipnrd"]
+[ext_resource type="Texture2D" uid="uid://8i05ivtpgsfo" path="res://assets/sprites/drivedir.png" id="2_gchtb"]
+[ext_resource type="Texture2D" uid="uid://cnfqrrm71ratx" path="res://assets/sprites/indicate.png" id="2_skkvd"]
+
+[node name="arrows" type="Node2D" unique_id=997288175 node_paths=PackedStringArray("yesprite")]
+script = ExtResource("1_ipnrd")
+yesprite = NodePath("Node2D/Indicate2")
+
+[node name="Indicate" type="Sprite2D" parent="." unique_id=1332891052]
+modulate = Color(1, 1, 1, 0.47058824)
+texture_filter = 1
+rotation = 1.5707964
+texture = ExtResource("2_skkvd")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1753023882]
+
+[node name="Indicate2" type="Sprite2D" parent="Node2D" unique_id=1203780009]
+modulate = Color(1, 1, 1, 0.47058824)
+texture_filter = 1
+rotation = 1.5707964
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_gchtb")
