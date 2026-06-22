@@ -1,7 +1,7 @@
 extends Node
 
 
-@export var timer: int
+@export var timer: int = 100
 @export var label: RichTextLabel
 @export var sound: AudioStreamPlayer2D
 @export var sound2: AudioStreamPlayer2D
@@ -13,7 +13,6 @@ var started = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#timeloop()
-	timer = 100
 	Signalbus.updateTimer(timer)
 	Signalbus.button.connect(_on_button_pressede)
 	Signalbus.start.connect(timeloop)
@@ -40,6 +39,14 @@ var runstarts = [
 
 ]
 
+var byes = [
+	"Maybe next time!...",
+	"Too slow...",
+	"You're taking too long!",
+	"Times up!",
+	"Bye bye!",
+	
+]
 
 #recycled
 func intTime(total_seconds: int) -> String:
@@ -48,7 +55,7 @@ func intTime(total_seconds: int) -> String:
 	var minutes: int = (total_seconds % 3600) / 60
 	var seconds: int = total_seconds % 60
 	if total_seconds <= 0:
-		return "[color=red][shake rate=20 level=50]TIMES UP!"
+		return "[color=red][shake rate=20 level=50]" + byes.pick_random()
 	
 	if hours > 0:
 		return "%02d:%02d:%02d" % [hours, minutes, seconds]
@@ -57,11 +64,11 @@ func intTime(total_seconds: int) -> String:
 
 
 func timeloop():
+	Globals.dead = false
 	while get_tree():
 		timer -= 1
 
 		if started == false:
-			timer = 50
 			label.text = "[wave amp=20 freq=10]" + runstarts.pick_random()
 			sound.play()
 			await get_tree().create_timer(.25).timeout
@@ -121,5 +128,5 @@ func fuckyou(ti: int):
 
 
 func _on_button_pressede():
-	fuckyou(-40)
+	fuckyou(40)
 	pass # Replace with function body.

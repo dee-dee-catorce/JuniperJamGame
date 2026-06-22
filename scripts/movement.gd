@@ -5,7 +5,7 @@ extends Node
 @export
 var speed: float = 0
 @export
-var acceleration: float = 1000 + Globals.accelerationUp
+var acceleration: float = 1000 + Globals.accelerationUp * 100
 @export
 var maxspeed: float = 10000 + Globals.speedUpgrade
 @export
@@ -18,7 +18,7 @@ enum states {
 
 	idle,
 	driving,
-	drift,
+	backup,
 
 }
 #not exported variables
@@ -51,10 +51,12 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_pressed("click"):
 		switch(states.driving)
+	elif Input.is_action_pressed("rclick"):
+		switch(states.backup)
 	else:
 		switch(states.idle)
 
-	statephy()
+	statephy(delta)
 	if drifting != driftdb:
 		driftsound.pitch_scale = randf_range(.8, 1.1)
 		driftsound.playing = drifting
@@ -71,7 +73,7 @@ func switch(newstate: states):
 	if newstate == currentstate: if Globals.devMode:
 		return
 	currentstate = newstate
-	match states:
+	match currentstate:
 		states.idle:
 			if Globals.devMode: print("entered idle")
 
@@ -81,7 +83,7 @@ func switch(newstate: states):
 
 #physics process
 
-func statephy():
+func statephy(delta):
 	match currentstate:
 		states.idle:
 			if Globals.devMode: print("idle physics")
@@ -91,14 +93,24 @@ func statephy():
 			if Globals.devMode:
 				print("driving physics")
 				#print(target)
-			var force = direction * acceleration
-			body.apply_central_force(force)
+			var force = direction * (acceleration + Globals.accelerationUp * 100)
+			body.apply_central_force(force * delta * 100)
 			#body.apply_torque(200009)
 			body.apply_torque(difference * body.linear_velocity.length() * 10)
 
 			drifting = abs(body.angular_velocity) > 1.75
 				
-				
+		states.backup:
+			if Globals.devMode:
+				print("backup physics")
+				#print(target)
+			var force = direction * (acceleration + Globals.accelerationUp * 100)
+			body.apply_central_force((-force * delta * 100) / 3)
+			#body.apply_torque(200009)
+			body.apply_torque(difference * body.linear_velocity.length() * 10)
+
+			drifting = abs(body.angular_velocity) > 1.75
+								
 			#body.rotation = direction.angle()
 ###### helpers
 #unity thing

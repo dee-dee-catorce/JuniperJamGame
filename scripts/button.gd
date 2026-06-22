@@ -12,5 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	Signalbus.buttonp()
+	#Signalbus.buttonp()
+	Globals.accelerationUp += .5
 	pass # Replace with function body.

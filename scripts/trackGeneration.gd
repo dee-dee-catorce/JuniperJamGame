@@ -12,6 +12,8 @@ var tracks = {
 	0: "spawn.tscn",
 	1: "spawn.tscn",
 	2: "spawn.tscn",
+	3: "spawn.tscn",
+	4: "spawn.tscn",
 }
 
 
