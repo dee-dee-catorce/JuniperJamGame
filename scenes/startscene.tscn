@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://cgh2enf5uxj5r"]
+
+[ext_resource type="Script" uid="uid://bjc2hn7a0m5dt" path="res://scripts/startscene.gd" id="1_hv8vd"]
+[ext_resource type="PackedScene" uid="uid://piaiin60pj76" path="res://scenes/handthatisnotacopyfromthehandfromcasualtiesunknown.tscn" id="1_wqy1k"]
+[ext_resource type="Theme" uid="uid://dmd6kjmii17la" path="res://assets/theme/start.tres" id="2_ckrm4"]
+[ext_resource type="Shader" uid="uid://cssfmsy1aaeem" path="res://assets/shaders/crt.gdshader" id="3_aum12"]
+[ext_resource type="AudioStream" uid="uid://h3waj4qpngdx" path="res://assets/sounds/Click.ogg" id="5_j16hr"]
+[ext_resource type="AudioStream" uid="uid://capikeowig3m2" path="res://assets/sounds/woomb.ogg" id="6_6d4sc"]
+[ext_resource type="AudioStream" uid="uid://chqxsfg1cdk3a" path="res://assets/sounds/Xa_shortfx_air.wav" id="7_42x52"]
+[ext_resource type="AudioStream" uid="uid://bvgjgoja7u103" path="res://assets/sounds/weird riser.ogg" id="8_23gh5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hv8vd"]
+shader = ExtResource("3_aum12")
+shader_parameter/brightness = 1.2400000589
+shader_parameter/contrast = 1.234000058615
+shader_parameter/saturation = 1.1
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.0570000027075
+shader_parameter/corner_soften = 0.04400000209
+shader_parameter/vignette = 0.0
+shader_parameter/scanline_strength = 0.17600000836
+shader_parameter/scanline_density = 1.370000041325
+shader_parameter/interlace_strength = 0.0
+shader_parameter/mask_strength = 0.0
+shader_parameter/mask_scale = 0.5
+shader_parameter/chroma_offset_px = 0.3950000187625
+shader_parameter/luma_smear_px = 0.0
+shader_parameter/jitter_px = 0.6570000312075
+shader_parameter/wobble_px = 1.2800000608
+shader_parameter/tape_noise = 0.0
+shader_parameter/tape_lines = 0.0
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_strength = 0.0
+shader_parameter/glow_strength = 0.0
+shader_parameter/glow_threshold = 0.27600001311
+shader_parameter/pixel_size = 2.0
+
+[node name="Node2D" type="Node2D" unique_id=1729925108]
+script = ExtResource("1_hv8vd")
+
+[node name="Node2D" parent="." unique_id=585330688 instance=ExtResource("1_wqy1k")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1320879024]
+layer = -2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=129344333]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1033125349]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_region = true
+alignment = 1
+
+[node name="start" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=1059656869]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("2_ckrm4")
+bbcode_enabled = true
+text = "[wave] A GAME BY DD14..."
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="button" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1343133268]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("2_ckrm4")
+text = "BY CLICKING THIS I ACKNOWLEDGE THE WARNING ABOVE"
+
+[node name="oo" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=760666048]
+modulate = Color(1, 1, 1, 0.5529412)
+layout_mode = 2
+theme = ExtResource("2_ckrm4")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="PostProcessingLayer2" type="CanvasLayer" parent="." unique_id=872472421]
+
+[node name="crt" type="ColorRect" parent="PostProcessingLayer2" unique_id=618802290]
+material = SubResource("ShaderMaterial_hv8vd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.26465687, 0.26465687, 0.26465687, 0)
+
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1868291267]
+position = Vector2(680, 384)
+stream = ExtResource("5_j16hr")
+
+[node name="LosingMyShit" type="AudioStreamPlayer2D" parent="." unique_id=1751324547]
+position = Vector2(648, 384)
+stream = ExtResource("6_6d4sc")
+volume_db = -5.832
+pitch_scale = 0.85
+autoplay = true
+
+[node name="XaShortfxAir" type="AudioStreamPlayer2D" parent="." unique_id=186948057]
+position = Vector2(648, 392)
+stream = ExtResource("7_42x52")
+volume_db = -19.44
+
+[node name="WeirdRiser" type="AudioStreamPlayer2D" parent="." unique_id=1083491690]
+position = Vector2(664, 400)
+stream = ExtResource("8_23gh5")
+volume_db = -0.972
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/button" to="." method="_on_button_pressed"]

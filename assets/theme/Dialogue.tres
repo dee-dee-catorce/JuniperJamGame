@@ -1,0 +1,19 @@
+[gd_resource type="Theme" format=3 uid="uid://cxuwds8qlhtpw"]
+
+[ext_resource type="FontFile" uid="uid://c2vwa3sm25jqf" path="res://assets/fonts/OnTheFritz.otf" id="1_p0oml"]
+
+[resource]
+Button/colors/font_color = Color(0.45860988, 0.2501113, 0.2897443, 1)
+Button/colors/font_focus_color = Color(0.686149, 0.24965289, 0.22983143, 1)
+Button/colors/font_hover_color = Color(0.6156863, 0, 0, 0.5764706)
+Button/colors/font_hover_pressed_color = Color(0.21374083, 0, 0.01963408, 1)
+Button/colors/font_pressed_color = Color(0.20620766, 1.1280645e-07, 0.026306633, 1)
+Button/constants/line_spacing = -2
+Button/font_sizes/font_size = 13
+Button/fonts/font = ExtResource("1_p0oml")
+LineEdit/font_sizes/font_size = 42
+LineEdit/fonts/font = ExtResource("1_p0oml")
+RichTextLabel/font_sizes/normal_font_size = 40
+RichTextLabel/fonts/normal_font = ExtResource("1_p0oml")
+TextEdit/font_sizes/font_size = 40
+TextEdit/fonts/font = ExtResource("1_p0oml")

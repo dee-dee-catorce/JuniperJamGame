@@ -1,8 +1,6 @@
 extends Node
 
 
-
-
 """
 ###
 
@@ -61,7 +59,8 @@ func _ready():
 	if FileAccess.file_exists(conPath):
 		settings = loadjson(conPath)
 		if Globals.devMode:
-			print("Settings loaded from disk")
+			newConfig()
+			
 	else:
 		newConfig()
 
@@ -81,11 +80,8 @@ func newsave():
 	savetodisk(savePath, data)
 
 
-
-
-
 func newConfig():
-	var configFile = "res://Scripts/singletons/config.json"
+	var configFile = "res://scripts/json/ConfigTemplate.json"
 
 	settings = loadjson(configFile).duplicate(true)
 	savetodisk(conPath, settings)
@@ -116,7 +112,7 @@ func savetodisk(path, dt):
 
 func InitAutosave():
 	while true:
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(10.0).timeout
 		if Globals.devMode:
 			print("saved")
 		savetodisk(savePath, data)

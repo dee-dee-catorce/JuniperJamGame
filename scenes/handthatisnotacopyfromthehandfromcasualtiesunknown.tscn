@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://piaiin60pj76"]
+
+[ext_resource type="Script" uid="uid://e01nqq8rswkh" path="res://scripts/handopening.gd" id="1_1xlkp"]
+[ext_resource type="Texture2D" uid="uid://flqf347xv3ka" path="res://assets/sprites/asdasdaszxcas.png" id="2_i5hpp"]
+
+[node name="Node2D" type="Node2D" unique_id=585330688 node_paths=PackedStringArray("handNode", "top", "bottom", "sprite")]
+script = ExtResource("1_1xlkp")
+handNode = NodePath(".")
+top = NodePath("start")
+bottom = NodePath("end")
+sprite = NodePath("Hand")
+
+[node name="Hand" type="Sprite2D" parent="." unique_id=558934616]
+texture_filter = 1
+position = Vector2(0, 168)
+texture = ExtResource("2_i5hpp")
+offset = Vector2(34.695, 473.1)
+hframes = 2
+
+[node name="start" type="Node2D" parent="." unique_id=757638769]
+position = Vector2(8, 648)
+
+[node name="end" type="Node2D" parent="." unique_id=862112720]
+position = Vector2(-32, -320)

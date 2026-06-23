@@ -125,7 +125,9 @@ theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "USER APPEARS TO SUCK AT EVERYTHING APPARENTLY
 
-STATUS: FAILURE"
+STATUS: FAILURE
+
+ALSO PRESS R TO RESTART"
 fit_content = true
 scroll_active = false
 autowrap_trim_flags = 0

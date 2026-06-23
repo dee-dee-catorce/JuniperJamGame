@@ -64,7 +64,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TimerHandler" type="Node" parent="." unique_id=75182509 node_paths=PackedStringArray("label", "sound", "sound2", "sound3")]
 script = ExtResource("2_5lxq6")
-timer = 45
+timer = 90
 label = NodePath("../timer")
 sound = NodePath("../RunStart")
 sound2 = NodePath("../RunStart/Click")

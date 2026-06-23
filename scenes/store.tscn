@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b4lu67fdnvn60"]
+
+[ext_resource type="Script" uid="uid://dho7n3vv0o3pq" path="res://scripts/dialogueHandle.gd" id="1_jmp1n"]
+[ext_resource type="Theme" uid="uid://cxuwds8qlhtpw" path="res://assets/theme/Dialogue.tres" id="2_atuvt"]
+[ext_resource type="Texture2D" uid="uid://dkevh4r61pckj" path="res://assets/sprites/uidijd.png" id="2_codmc"]
+
+[node name="store" type="Node2D" unique_id=430293882]
+
+[node name="dialogueHandle" type="Node2D" parent="." unique_id=847808461 node_paths=PackedStringArray("rtl", "spr")]
+script = ExtResource("1_jmp1n")
+rtl = NodePath("RichTextLabel")
+spr = NodePath("rect4/portrait")
+
+[node name="rect" type="ColorRect" parent="dialogueHandle" unique_id=1484440281]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 520.0
+offset_bottom = 136.0
+color = Color(1, 1, 1, 0.2901961)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect2" type="ColorRect" parent="dialogueHandle" unique_id=1023696453]
+offset_left = 528.0
+offset_top = -8.0
+offset_right = 672.0
+offset_bottom = 136.0
+color = Color(1, 1, 1, 0.2901961)
+
+[node name="rect3" type="ColorRect" parent="dialogueHandle" unique_id=538411626]
+offset_right = 512.0
+offset_bottom = 128.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect4" type="ColorRect" parent="dialogueHandle" unique_id=438322320]
+offset_left = 536.0
+offset_right = 664.0
+offset_bottom = 128.0
+color = Color(0, 0, 0, 1)
+
+[node name="portrait" type="Sprite2D" parent="dialogueHandle/rect4" unique_id=584327388]
+position = Vector2(64, 64)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_codmc")
+hframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="dialogueHandle" unique_id=2111999039]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 504.0
+offset_bottom = 120.0
+theme = ExtResource("2_atuvt")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "dadas"
+metadata/_edit_use_anchors_ = true

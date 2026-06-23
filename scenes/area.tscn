@@ -57,13 +57,26 @@ targSize = 2.0
 
 [node name="PostProcessingLayer2" type="CanvasLayer" parent="." unique_id=589018421]
 
+[node name="RichTextLabel" type="RichTextLabel" parent="PostProcessingLayer2" unique_id=229538601]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 71
+text = "THIS PART DOESNT HAVE ANYTHING YET
+GO IN THE CIRCLE"
+
 [node name="crt" type="ColorRect" parent="PostProcessingLayer2" unique_id=1533449836]
+visible = false
 material = SubResource("ShaderMaterial_abe4w")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.26465687, 0.26465687, 0.26465687, 0)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1535476341]

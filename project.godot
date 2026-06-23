@@ -12,9 +12,9 @@ config_version=5
 
 config/name="Car game"
 config/description="car game you blow up"
-run/main_scene="uid://dgpi3pdibuakk"
+run/main_scene="uid://cgh2enf5uxj5r"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="deedee14"
+config/custom_user_dir_name="deedee14/racinggame"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
