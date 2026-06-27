@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://bioaxd4j0ln5d"]
+
+[ext_resource type="Texture2D" uid="uid://ckiy7m2me0jgc" path="res://assets/sprites/thanlks.png" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://dqntcchh36llo" path="res://assets/sprites/explain-it-peter-ive-seen-this-image-multiple-times-what-v0-3n1bv8iqbeme1.png" id="2_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://25u14fhl0ykv" path="res://rigid_body_2d.tscn" id="3_epypp"]
+[ext_resource type="AudioStream" uid="uid://b5r4gtjvm417b" path="res://assets/sounds/music/microsofts default soundfont that they havent updated since 2002.wav" id="3_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://piaiin60pj76" path="res://scenes/handthatisnotacopyfromthehandfromcasualtiesunknown.tscn" id="4_0hol4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0vd41"]
+distance = -721.0
+
+[node name="Node2D" type="Node2D" unique_id=325377091]
+
+[node name="Thanlks" type="Sprite2D" parent="." unique_id=1711666184]
+position = Vector2(584, 288)
+texture = ExtResource("1_epypp")
+
+[node name="MicrosoftsDefaultSoundfontThatTheyHaventUpdatedSince2002" type="AudioStreamPlayer2D" parent="." unique_id=1211675184]
+position = Vector2(734, 331)
+stream = ExtResource("3_q6r6c")
+autoplay = true
+
+[node name="RigidBody2D" parent="." unique_id=1822282857 instance=ExtResource("3_epypp")]
+rotation = 0.2617994
+
+[node name="RigidBody2D2" parent="." unique_id=511159749 instance=ExtResource("3_epypp")]
+rotation = 0.2617994
+
+[node name="RigidBody2D3" parent="." unique_id=2069704209 instance=ExtResource("3_epypp")]
+rotation = -0.07645607
+
+[node name="RigidBody2D4" parent="." unique_id=1263390321 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+
+[node name="RigidBody2D5" parent="." unique_id=1412482650 instance=ExtResource("3_epypp")]
+rotation = -0.17404121
+
+[node name="RigidBody2D6" parent="." unique_id=1321306980 instance=ExtResource("3_epypp")]
+rotation = -0.41521502
+
+[node name="RigidBody2D7" parent="." unique_id=514928839 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+
+[node name="RigidBody2D17" parent="." unique_id=906029711 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+
+[node name="RigidBody2D18" parent="." unique_id=1936112912 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+
+[node name="ExplainItPeterIveSeenThisImageMultipleTimesWhatV03n1Bv8Iqbeme1" type="Sprite2D" parent="RigidBody2D18" unique_id=1425652024]
+position = Vector2(1246.0381, -86.4848)
+rotation = -0.52359873
+scale = Vector2(2.3397484, 2.3397484)
+texture = ExtResource("2_q6r6c")
+
+[node name="RigidBody2D19" parent="." unique_id=1577190300 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+
+[node name="RigidBody2D8" parent="." unique_id=1315483682 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+
+[node name="RigidBody2D9" parent="." unique_id=396061274 instance=ExtResource("3_epypp")]
+rotation = 0.2617994
+scale = Vector2(1.0593352, 0.24826138)
+
+[node name="RigidBody2D10" parent="." unique_id=1024894091 instance=ExtResource("3_epypp")]
+rotation = 0.2617994
+scale = Vector2(1.0593352, 0.24826138)
+
+[node name="RigidBody2D11" parent="." unique_id=118425292 instance=ExtResource("3_epypp")]
+rotation = -0.07645607
+scale = Vector2(1.0593352, 0.24826138)
+
+[node name="RigidBody2D12" parent="." unique_id=738718488 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(1.0593352, 0.24826138)
+
+[node name="RigidBody2D13" parent="." unique_id=1913055882 instance=ExtResource("3_epypp")]
+rotation = -0.17404121
+scale = Vector2(1.0593352, 0.24826138)
+
+[node name="RigidBody2D14" parent="." unique_id=18856724 instance=ExtResource("3_epypp")]
+rotation = -0.41521502
+scale = Vector2(1.0593352, 0.24826138)
+
+[node name="RigidBody2D15" parent="." unique_id=671680168 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(1.0593352, 0.24826138)
+
+[node name="RigidBody2D16" parent="." unique_id=1538657447 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(1.0593352, 0.24826138)
+
+[node name="RigidBody2D20" parent="." unique_id=552047213 instance=ExtResource("3_epypp")]
+rotation = -0.07645607
+scale = Vector2(1.320311, 0.5406496)
+
+[node name="RigidBody2D21" parent="." unique_id=1433160605 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(1.320311, 0.54064953)
+
+[node name="RigidBody2D22" parent="." unique_id=928046342 instance=ExtResource("3_epypp")]
+rotation = -0.17404121
+scale = Vector2(1.320311, 0.5406496)
+
+[node name="RigidBody2D23" parent="." unique_id=803512234 instance=ExtResource("3_epypp")]
+rotation = -0.41521502
+scale = Vector2(1.320311, 0.54064953)
+
+[node name="RigidBody2D24" parent="." unique_id=237351964 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(1.320311, 0.54064953)
+
+[node name="RigidBody2D25" parent="." unique_id=1972335011 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(1.320311, 0.54064953)
+
+[node name="RigidBody2D26" parent="." unique_id=466071300 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(1.320311, 0.54064953)
+
+[node name="RigidBody2D27" parent="." unique_id=1460462401 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(1.320311, 0.54064953)
+
+[node name="RigidBody2D28" parent="." unique_id=917274203 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(1.320311, 0.54064953)
+
+[node name="RigidBody2D29" parent="." unique_id=764688500 instance=ExtResource("3_epypp")]
+rotation = 0.2617994
+scale = Vector2(2.2816384, 0.21895869)
+
+[node name="RigidBody2D30" parent="." unique_id=672721419 instance=ExtResource("3_epypp")]
+rotation = 0.2617994
+scale = Vector2(2.2816384, 0.21895869)
+
+[node name="RigidBody2D31" parent="." unique_id=450685113 instance=ExtResource("3_epypp")]
+rotation = -0.07645607
+scale = Vector2(2.2816384, 0.21895869)
+
+[node name="RigidBody2D32" parent="." unique_id=889902004 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(2.2816384, 0.21895866)
+
+[node name="RigidBody2D33" parent="." unique_id=1526869674 instance=ExtResource("3_epypp")]
+rotation = -0.17404121
+scale = Vector2(2.2816384, 0.21895869)
+
+[node name="RigidBody2D34" parent="." unique_id=2079639023 instance=ExtResource("3_epypp")]
+rotation = -0.41521502
+scale = Vector2(2.2816384, 0.21895869)
+
+[node name="RigidBody2D35" parent="." unique_id=1398004059 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(2.2816384, 0.21895866)
+
+[node name="RigidBody2D36" parent="." unique_id=52293754 instance=ExtResource("3_epypp")]
+rotation = 0.5235988
+scale = Vector2(2.2816384, 0.21895866)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1084108427]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1705336577]
+shape = SubResource("WorldBoundaryShape2D_0vd41")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2069599436]
+shape = SubResource("WorldBoundaryShape2D_0vd41")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1278664258]
+position = Vector2(720.00006, 312)
+rotation = 1.5712738
+shape = SubResource("WorldBoundaryShape2D_0vd41")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1677124487]
+position = Vector2(560, 304)
+rotation = 4.693166
+shape = SubResource("WorldBoundaryShape2D_0vd41")
+
+[node name="Node2D" parent="." unique_id=585330688 instance=ExtResource("4_0hol4")]

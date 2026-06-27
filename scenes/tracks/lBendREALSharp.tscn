@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dre06uywlea52"]
+
+[ext_resource type="Script" uid="uid://bw4700f2aoujd" path="res://scripts/trackHandle.gd" id="1_qay55"]
+[ext_resource type="Script" uid="uid://cburu6b4ckehs" path="res://addons/godot-rapier2d/custom_nodes/rapier_area_2d.gd" id="2_7bfpr"]
+[ext_resource type="PackedScene" uid="uid://clh3a1d5fslcm" path="res://scenes/spinning.tscn" id="3_7bfpr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vd41"]
+size = Vector2(904, 344.21637)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgbq8"]
+size = Vector2(284, 761.0386)
+
+[node name="track1" type="Node2D" unique_id=732674056 node_paths=PackedStringArray("start", "end", "trigger")]
+scale = Vector2(1, 1.0052121)
+script = ExtResource("1_qay55")
+start = NodePath("start")
+end = NodePath("end")
+trigger = NodePath("area")
+
+[node name="end" type="Node2D" parent="." unique_id=1623674634]
+position = Vector2(8.000061, -1018.6907)
+rotation = 0.35280627
+
+[node name="Marker2D" type="Marker2D" parent="end" unique_id=690694178]
+position = Vector2(-215.04233, 342.0886)
+
+[node name="start" type="Node2D" parent="." unique_id=1269004562]
+
+[node name="Marker2D" type="Marker2D" parent="start" unique_id=1023776704]
+
+[node name="area" type="Area2D" parent="." unique_id=1264202932]
+script = ExtResource("2_7bfpr")
+metadata/_custom_type_script = "uid://cburu6b4ckehs"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area" unique_id=1089060866]
+position = Vector2(292, -170.10817)
+shape = SubResource("RectangleShape2D_0vd41")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="area" unique_id=10601020]
+position = Vector2(288, -851.5616)
+shape = SubResource("RectangleShape2D_0vd41")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="area" unique_id=704407422]
+position = Vector2(598, -643.15045)
+shape = SubResource("RectangleShape2D_fgbq8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1035398923]
+offset_left = -160.0
+offset_top = -350.17487
+offset_right = 744.0
+color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1319017962]
+offset_left = 384.0
+offset_top = -1026.649
+offset_right = 744.0
+color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=243323996]
+offset_left = -160.0
+offset_top = -1026.649
+offset_right = 744.0
+offset_bottom = -692.3912
+color = Color(0.2520276, 0.25202766, 0.25202763, 1)
+
+[node name="StaticBody2D" parent="." unique_id=1819866956 instance=ExtResource("3_7bfpr")]
+position = Vector2(240, -517.3038)
+scale = Vector2(0.23820026, 0.23820026)

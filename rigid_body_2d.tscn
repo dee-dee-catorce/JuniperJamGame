@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://25u14fhl0ykv"]
+
+[ext_resource type="Texture2D" uid="uid://pnpcysyrdr4w" path="res://assets/sprites/asdasdzxcascas.png" id="1_jiowd"]
+[ext_resource type="Script" uid="uid://rrdy5a5ai4tp" path="res://scripts/reuseddragscript.gd" id="2_2x7xp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vd41"]
+size = Vector2(236.5, 231.5)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1822282857]
+scale = Vector2(0.6130033, 0.6130033)
+
+[node name="Asdasdzxcascas" type="Sprite2D" parent="." unique_id=1217930897]
+position = Vector2(893, 555)
+scale = Vector2(0.6848485, 0.6848485)
+texture = ExtResource("1_jiowd")
+
+[node name="Detector" type="Area2D" parent="." unique_id=622592341]
+script = ExtResource("2_2x7xp")
+
+[node name="collider2" type="CollisionShape2D" parent="Detector" unique_id=377718422]
+position = Vector2(892.75, 555.25)
+shape = SubResource("RectangleShape2D_0vd41")
+
+[node name="collider" type="CollisionShape2D" parent="." unique_id=174189833]
+position = Vector2(892.75, 555.25)
+shape = SubResource("RectangleShape2D_0vd41")

@@ -20,9 +20,9 @@ THIS GAME CONTAINS:
 
 FLASHING LIGHTS,
 LOUD AND DISTRESSING NOISES,
-SO MANY SPINNING OBJECTS THAT IT WILL MAKE YOU DIZZY,
+WELL IT WAS GONNA HAVE ALOT OF SPINNING BUT I RAN OUT OF TIME
 
-AND DOES NOT SHY AWAY FROM MAKING FUN OF YOU.
+AND ALSO MIGHT MAKE FUN OF YOU IF YOU SUCK AT THE GAME.
 "
 
 
@@ -34,9 +34,10 @@ flashing,
 loud noises,
 mean words.
 
+the creator of this game thinks it sucks
+
 you get the deal by now, eh?
 
-[color=red][shake]get driving
 "
 
 func _ready() -> void:
@@ -85,7 +86,7 @@ func typeOut(richlabel: RichTextLabel, string: String, speed_multiplier: float =
 	isTyping = false
 	if Saveloadsys.settings.playflag == true:
 		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file("res://scenes/area.tscn")
+		get_tree().change_scene_to_file("res://scenes/gsdfsdgf.tscn")
 	else:
 		await get_tree().create_timer(1).timeout
 		$CanvasLayer/VBoxContainer/button.visible = true
@@ -94,7 +95,7 @@ func typeOut(richlabel: RichTextLabel, string: String, speed_multiplier: float =
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("r"):
-		get_tree().change_scene_to_file("res://scenes/area.tscn")
+		get_tree().change_scene_to_file("res://scenes/gsdfsdgf.tscn")
 	pass
 
 
@@ -103,6 +104,6 @@ func _on_button_pressed() -> void:
 	$CanvasLayer/VBoxContainer/button.disabled = true
 	
 	await get_tree().create_timer(1).timeout
-	typeOut($CanvasLayer/VBoxContainer/oo, "[tornado radius=2.5 freq=1.5 connected=1]... AND GRANT YOU FULL PERMISSION TO STRAP ME WITH EXPLOSIVES")
+	typeOut($CanvasLayer/VBoxContainer/oo, "[tornado radius=2.5 freq=1.5 connected=1]... this was made for a game jam sorry if it sucks i have zero plan to update this k bye")
 
 	pass # Replace with function body.

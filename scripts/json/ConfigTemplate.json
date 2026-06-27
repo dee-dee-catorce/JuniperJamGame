@@ -1,5 +1,6 @@
 {
 	"volume": 0,
 	"music": 0,
-	"playflag": false
+	"playflag": false,
+	"spin": true
 }

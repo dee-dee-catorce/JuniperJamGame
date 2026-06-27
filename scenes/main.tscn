@@ -4,16 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://qw5myfm34if1" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://co2rxq8vqling" path="res://scripts/main.gd" id="1_trceg"]
 [ext_resource type="AudioStream" uid="uid://bjia7d3owc8je" path="res://assets/sounds/music/deathsdoor.ogg" id="3_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://c1q4v3ahc51hq" path="res://assets/sounds/music/finalstage.ogg" id="3_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://b2qjioy0rngux" path="res://scenes/timer.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dljnbif41qu3n" path="res://scenes/track.tscn" id="4_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://b7rc6q67necvs" path="res://scenes/arrows.tscn" id="5_eb6dy"]
 [ext_resource type="Script" uid="uid://d3y0mbryq82uq" path="res://scripts/postProcessing.gd" id="5_o6xl0"]
 [ext_resource type="Shader" uid="uid://coengb1exmmm4" path="res://assets/shaders/fog.gdshader" id="5_tefeu"]
-[ext_resource type="PackedScene" uid="uid://clh3a1d5fslcm" path="res://scenes/spinning.tscn" id="7_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://ki210cj82dys" path="res://assets/sprites/qsdas.png" id="7_0ld40"]
 [ext_resource type="Script" uid="uid://jche1e7ujcci" path="res://scripts/camHandler.gd" id="10_choun"]
-[ext_resource type="Script" uid="uid://cltkk38ufb033" path="res://scripts/button.gd" id="10_trceg"]
+[ext_resource type="Texture2D" uid="uid://dfjgy088gm2go" path="res://assets/sprites/i give up.png" id="11_a8y0u"]
 [ext_resource type="Shader" uid="uid://cssfmsy1aaeem" path="res://assets/shaders/crt.gdshader" id="11_eb6dy"]
 [ext_resource type="Shader" uid="uid://54gfhk7jxsqk" path="res://assets/shaders/death.gdshader" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://cwxinub54gg8x" path="res://scenes/i_give_up.gd" id="13_muem4"]
+[ext_resource type="AudioStream" uid="uid://vxjcqbam8gs" path="res://assets/sounds/assaczbsdfgjkhnsdfgjhnsdfjkgndfjngosdfjngisdfbgisdfhgyuihsdf.mp3" id="15_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://b7bhrpr6vj1ug" path="res://assets/sprites/asdasbasxcv.png" id="18_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://bm44fygs2nc46" path="res://assets/sprites/death.png" id="19_0ld40"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tbgi4"]
 shader = ExtResource("5_tefeu")
@@ -56,11 +61,16 @@ shader_parameter/u_color_mid_red = Color(0.3905803, 0, 0.012766273, 1)
 shader_parameter/u_color_high = Color(0.23586142, 0.18255264, 0.99999994, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1852519337]
+process_mode = 3
 script = ExtResource("1_trceg")
 
 [node name="Placeholder" type="AudioStreamPlayer" parent="." unique_id=1305533873]
 stream = ExtResource("1_eb6dy")
 volume_db = -12.01
+parameters/looping = true
+
+[node name="Finalstage" type="AudioStreamPlayer" parent="." unique_id=491983121]
+stream = ExtResource("3_jbj1t")
 parameters/looping = true
 
 [node name="death" type="AudioStreamPlayer" parent="." unique_id=1887499908]
@@ -78,25 +88,39 @@ color = Color(0.24477637, 0.2447764, 0.24477637, 1)
 [node name="Node2D2" parent="." unique_id=52920907 instance=ExtResource("4_ya4ey")]
 scale = Vector2(3, 3)
 
+[node name="Asdasbasxcv" type="Sprite2D" parent="." unique_id=1348714781]
+modulate = Color(1, 1, 1, 0.36862746)
+texture_filter = 1
+position = Vector2(154.0368, -1613.6825)
+rotation = -1.4260168
+scale = Vector2(3.2147079, 1.5495048)
+texture = ExtResource("18_dp3eg")
+
+[node name="Death" type="Sprite2D" parent="Asdasbasxcv" unique_id=1556273525]
+texture_filter = 1
+position = Vector2(1825.599, -630.5048)
+rotation = -0.8321324
+scale = Vector2(0.57685894, 0.83161104)
+skew = 0.5823351
+texture = ExtResource("19_0ld40")
+
+[node name="Qsdas" type="Sprite2D" parent="." unique_id=924745976]
+modulate = Color(1, 1, 1, 0.6117647)
+position = Vector2(228.38086, -4348.0596)
+rotation = -1.7445589
+scale = Vector2(2.280287, 1.9620452)
+texture = ExtResource("7_0ld40")
+
 [node name="player" parent="." unique_id=1668277638 instance=ExtResource("1_o5qli")]
+process_mode = 3
+process_priority = 2
+process_physics_priority = 2
 position = Vector2(-7.4487616e-09, 72)
 linear_damp = 1.0
 
 [node name="arrows" parent="player" unique_id=997288175 node_paths=PackedStringArray("track") instance=ExtResource("5_eb6dy")]
 scale = Vector2(1.2188697, 1.2188697)
 track = NodePath("../../Node2D2")
-
-[node name="StaticBody2D" parent="." unique_id=1819866956 instance=ExtResource("7_a8y0u")]
-position = Vector2(2287, -1083)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=830776563]
-offset_left = 1201.0
-offset_top = -590.0
-offset_right = 1816.0
-offset_bottom = -274.0
-theme_override_font_sizes/normal_font_size = 70
-text = "BLACK HOLE!
-(TEST OBJECT)"
 
 [node name="PostProcessing" type="CanvasLayer" parent="." unique_id=1615014434 node_paths=PackedStringArray("fog", "sound")]
 script = ExtResource("5_o6xl0")
@@ -115,10 +139,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PostProcessingLayer2" type="CanvasLayer" parent="." unique_id=1945926273]
 
-[node name="Control" parent="PostProcessingLayer2" unique_id=1964405672 node_paths=PackedStringArray("body") instance=ExtResource("4_tbgi4")]
+[node name="Control" parent="PostProcessingLayer2" unique_id=1964405672 node_paths=PackedStringArray("body", "igiveup") instance=ExtResource("4_tbgi4")]
 body = NodePath("../../player")
+igiveup = NodePath("../IGiveUp")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PostProcessingLayer2" unique_id=1892485627]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -136,22 +162,12 @@ THERE ISNT ANYTHING MUCH
 YET SO THIS IS JUST A DRIVING
 SIM ATM"
 
-[node name="Button" type="Button" parent="PostProcessingLayer2" unique_id=1378126515]
-anchors_preset = -1
-anchor_left = 0.025
-anchor_top = 0.12222222
-anchor_right = 0.21875
-anchor_bottom = 0.3
-offset_left = 990.0
-offset_top = -70.0
-offset_right = 990.0
-offset_bottom = -70.000015
-text = "the SPEED  button
-(level up speed by one)
-also press r to restart
-"
-script = ExtResource("10_trceg")
-metadata/_edit_use_anchors_ = true
+[node name="IGiveUp" type="Sprite2D" parent="PostProcessingLayer2" unique_id=1872266991]
+modulate = Color(0.23921569, 0.23921569, 0.23921569, 1)
+position = Vector2(641, 357)
+scale = Vector2(1.6445782, 2.0578313)
+texture = ExtResource("11_a8y0u")
+script = ExtResource("13_muem4")
 
 [node name="crt" type="ColorRect" parent="PostProcessingLayer2" unique_id=535071521]
 material = SubResource("ShaderMaterial_trceg")
@@ -179,14 +195,19 @@ mouse_filter = 2
 position = Vector2(-2.1684043e-19, -8)
 rotation = 0.0112316385
 scale = Vector2(13.489856, 6.027591)
+ignore_rotation = false
 zoom = Vector2(4, 4)
 limit_enabled = false
 position_smoothing_speed = 10.0
 rotation_smoothing_enabled = true
+rotation_smoothing_speed = 1.0
 script = ExtResource("10_choun")
 player = NodePath("../player")
 max_offset = 200.0
 lerp_speed = 9.0
 targSize = 0.2
 
-[connection signal="pressed" from="PostProcessingLayer2/Button" to="PostProcessingLayer2/Button" method="_on_pressed"]
+[node name="Assaczbsdfgjkhnsdfgjhnsdfjkgndfjngosdfjngisdfbgisdfhgyuihsdf" type="AudioStreamPlayer2D" parent="." unique_id=1015859222]
+position = Vector2(559, 499)
+stream = ExtResource("15_jkv2x")
+autoplay = true

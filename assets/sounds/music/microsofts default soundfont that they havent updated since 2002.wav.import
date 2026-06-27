@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5r4gtjvm417b"
+path="res://.godot/imported/microsofts default soundfont that they havent updated since 2002.wav-40624932071806ad48a71c072fb29331.sample"
+
+[deps]
+
+source_file="res://assets/sounds/music/microsofts default soundfont that they havent updated since 2002.wav"
+dest_files=["res://.godot/imported/microsofts default soundfont that they havent updated since 2002.wav-40624932071806ad48a71c072fb29331.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

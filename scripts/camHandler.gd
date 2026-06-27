@@ -7,6 +7,7 @@ extends Camera2D
 @export var targSize = .5
 
 func _ready() -> void:
+	print(Saveloadsys.settings["spin"])
 	zoom = Vector2(4, 4)
 	pass
 func _process(delta: float) -> void:
@@ -21,6 +22,10 @@ func _process(delta: float) -> void:
 	targSize = .5 - speedzoom
 	targSize = clamp(targSize, .3, .5)
 	zoom = lerp(zoom, Vector2(targSize, targSize), .02)
+
+	rotation = player.rotation
+
+	ignore_rotation = !Saveloadsys.settings["spin"]
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("r"):
 		get_tree().reload_current_scene()

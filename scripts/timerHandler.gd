@@ -1,7 +1,7 @@
 extends Node
 
 
-@export var timer: int = 100
+@export var timer: int = 10220
 @export var label: RichTextLabel
 @export var sound: AudioStreamPlayer2D
 @export var sound2: AudioStreamPlayer2D
@@ -14,14 +14,14 @@ var started = false
 func _ready() -> void:
 	#timeloop()
 	Signalbus.updateTimer(timer)
-	Signalbus.button.connect(_on_button_pressede)
+	Signalbus.button.connect(sign)
 	Signalbus.start.connect(timeloop)
 	pass # Replace with function body.
 
 
 var runstarts = [
 
-	">:3",
+	">:#",
 	">:)",
 	"Have fun!",
 	"GO GO GO!!!!",
@@ -65,37 +65,48 @@ func intTime(total_seconds: int) -> String:
 
 func timeloop():
 	Globals.dead = false
-	while get_tree():
+	while is_inside_tree():
 		timer -= 1
 
 		if started == false:
+			timer += Saveloadsys.data["currtimeadd"] * 5
 			label.text = "[wave amp=20 freq=10]" + runstarts.pick_random()
 			sound.play()
 			await get_tree().create_timer(.25).timeout
+			if not is_inside_tree(): return
 			label.visible = true
 			await get_tree().create_timer(.5).timeout
+			if not is_inside_tree(): return
 			label.visible = false
 
 			await get_tree().create_timer(.25).timeout
+			if not is_inside_tree(): return
 			label.visible = true
 			await get_tree().create_timer(.5).timeout
+			if not is_inside_tree(): return
 			label.visible = false
 
 			await get_tree().create_timer(.25).timeout
+			if not is_inside_tree(): return
 			label.visible = true
 			await get_tree().create_timer(.5).timeout
+			if not is_inside_tree(): return
 			label.visible = false
 			await get_tree().create_timer(.25).timeout
+			if not is_inside_tree(): return
 			label.visible = true
+
 			started = true
 		label.text = "[wave amp=00 freq=0]" + intTime(timer)
 		Signalbus.updateTimer(timer)
 		nudgetimer()
-		if !Globals.dead and get_tree():
+		if !Globals.dead and is_inside_tree():
 			await get_tree().create_timer(1).timeout
+			if not is_inside_tree(): return
 
 
 func nudgetimer():
+	if not is_inside_tree(): return
 	var tween := create_tween()
 	sound2.play()
 
@@ -104,13 +115,13 @@ func nudgetimer():
 	pass
 
 func fuckyou(ti: int):
-	# Force total steps to be a positive count so the loop actually runs
 	var total_steps: float = abs(ti)
 	
 	sound3.play()
 	for i in int(total_steps):
+		if not is_inside_tree(): return
 		var progress: float = float(i) / total_steps
-		
+		if not is_inside_tree(): return
 		
 		sound2.play()
 		if ti > 0:
@@ -127,6 +138,6 @@ func fuckyou(ti: int):
 	label.modulate = Color.WHITE
 
 
-func _on_button_pressede():
-	fuckyou(40)
+func sign(intaa):
+	fuckyou(intaa)
 	pass # Replace with function body.

@@ -2,15 +2,48 @@
 
 [ext_resource type="FontFile" uid="uid://c2vwa3sm25jqf" path="res://assets/fonts/OnTheFritz.otf" id="1_p0oml"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0oml"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8l3h"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gf6f2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13cwc"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_la4d4"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
 [resource]
-Button/colors/font_color = Color(0.45860988, 0.2501113, 0.2897443, 1)
-Button/colors/font_focus_color = Color(0.686149, 0.24965289, 0.22983143, 1)
-Button/colors/font_hover_color = Color(0.6156863, 0, 0, 0.5764706)
-Button/colors/font_hover_pressed_color = Color(0.21374083, 0, 0.01963408, 1)
-Button/colors/font_pressed_color = Color(0.20620766, 1.1280645e-07, 0.026306633, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.41598046, 0.41598043, 0.4159804, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/constants/line_spacing = -2
 Button/font_sizes/font_size = 13
 Button/fonts/font = ExtResource("1_p0oml")
+Button/styles/disabled_mirrored = SubResource("StyleBoxFlat_p0oml")
+Button/styles/focus = SubResource("StyleBoxFlat_i8l3h")
+Button/styles/hover = SubResource("StyleBoxFlat_gf6f2")
+Button/styles/normal = SubResource("StyleBoxFlat_13cwc")
+Button/styles/pressed = SubResource("StyleBoxFlat_la4d4")
 LineEdit/font_sizes/font_size = 42
 LineEdit/fonts/font = ExtResource("1_p0oml")
 RichTextLabel/font_sizes/normal_font_size = 40

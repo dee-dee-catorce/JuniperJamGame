@@ -2,7 +2,7 @@ extends Node
 
 
 signal timerUpd(int)
-signal button()
+signal button(int)
 signal start()
 
 func updateTimer(timer: int):
@@ -10,8 +10,8 @@ func updateTimer(timer: int):
 	timerUpd.emit(timer)
 	pass
 
-func buttonp():
-	button.emit()
+func buttonp(inta: int):
+	button.emit(inta)
 	pass
 
 func startf():

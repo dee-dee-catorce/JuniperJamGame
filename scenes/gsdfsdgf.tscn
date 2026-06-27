@@ -1,0 +1,352 @@
+[gd_scene format=3 uid="uid://cjnmkhiw3hbe4"]
+
+[ext_resource type="Texture2D" uid="uid://rpmnua8w670l" path="res://assets/sprites/die.png" id="1_o1cvc"]
+[ext_resource type="Theme" uid="uid://cxuwds8qlhtpw" path="res://assets/theme/Dialogue.tres" id="2_dm7d0"]
+[ext_resource type="Script" uid="uid://dloj0x00fcmjc" path="res://scripts/control.gd" id="3_74bii"]
+[ext_resource type="Script" uid="uid://d3pu6egcdlu6r" path="res://scripts/settings.gd" id="3_dm7d0"]
+[ext_resource type="Texture2D" uid="uid://pnpcysyrdr4w" path="res://assets/sprites/asdasdzxcascas.png" id="4_xtge3"]
+[ext_resource type="Shader" uid="uid://cssfmsy1aaeem" path="res://assets/shaders/crt.gdshader" id="5_5iknj"]
+[ext_resource type="PackedScene" uid="uid://piaiin60pj76" path="res://scenes/handthatisnotacopyfromthehandfromcasualtiesunknown.tscn" id="6_y611j"]
+[ext_resource type="Texture2D" uid="uid://dfjgy088gm2go" path="res://assets/sprites/i give up.png" id="7_rdfek"]
+[ext_resource type="Script" uid="uid://cwxinub54gg8x" path="res://scenes/i_give_up.gd" id="8_xwgqa"]
+[ext_resource type="AudioStream" uid="uid://vxjcqbam8gs" path="res://assets/sounds/assaczbsdfgjkhnsdfgjhnsdfjkgndfjngosdfjngisdfbgisdfhgyuihsdf.mp3" id="9_ike41"]
+[ext_resource type="AudioStream" uid="uid://bu1fmxaqe663" path="res://assets/sounds/music/white knuckle attempt.wav" id="10_e6cji"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vd41"]
+shader = ExtResource("5_5iknj")
+shader_parameter/brightness = 0.53600002546
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 1.1
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.14
+shader_parameter/corner_soften = 0.06
+shader_parameter/vignette = 0.38
+shader_parameter/scanline_strength = 0.95
+shader_parameter/scanline_density = 1.15
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.0
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 6.0
+shader_parameter/luma_smear_px = 2.2
+shader_parameter/jitter_px = 1.8
+shader_parameter/wobble_px = 1.5
+shader_parameter/tape_noise = 0.0
+shader_parameter/tape_lines = 0.35
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.25
+shader_parameter/glow_threshold = 0.65
+shader_parameter/pixel_size = 32.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6er8s"]
+shader = ExtResource("5_5iknj")
+shader_parameter/brightness = 2.0
+shader_parameter/contrast = 1.0800000513
+shader_parameter/saturation = 1.1
+shader_parameter/gamma = 1.05
+shader_parameter/curvature = 0.090000004275
+shader_parameter/corner_soften = 0.0
+shader_parameter/vignette = 0.0
+shader_parameter/scanline_strength = 0.0
+shader_parameter/scanline_density = 0.5
+shader_parameter/interlace_strength = 0.0
+shader_parameter/mask_strength = 0.22
+shader_parameter/mask_scale = 0.5
+shader_parameter/chroma_offset_px = 0.0
+shader_parameter/luma_smear_px = 0.0
+shader_parameter/jitter_px = 0.0
+shader_parameter/wobble_px = 1.5
+shader_parameter/tape_noise = 0.0
+shader_parameter/tape_lines = 0.0
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.25
+shader_parameter/glow_threshold = 0.65
+shader_parameter/pixel_size = 2.0
+
+[node name="Control" type="Control" unique_id=1826100313]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Asdasasd" type="Sprite2D" parent="." unique_id=139541707]
+modulate = Color(1.0413129, 1.0413129, 1.0413129, 1)
+position = Vector2(640, 232.00002)
+scale = Vector2(0.5326232, 0.38554215)
+texture = ExtResource("1_o1cvc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1798216240]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 490.0
+offset_top = 370.0
+offset_right = -490.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="play" type="Button" parent="VBoxContainer" unique_id=648141940]
+custom_minimum_size = Vector2(0, 80)
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+theme = ExtResource("2_dm7d0")
+theme_override_font_sizes/font_size = 61
+text = "PLAY"
+
+[node name="credits" type="Button" parent="VBoxContainer" unique_id=682605831]
+custom_minimum_size = Vector2(0, 80)
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+theme = ExtResource("2_dm7d0")
+theme_override_font_sizes/font_size = 61
+text = "CREDITS"
+
+[node name="settings" type="Button" parent="VBoxContainer" unique_id=428396222]
+custom_minimum_size = Vector2(0, 80)
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+theme = ExtResource("2_dm7d0")
+theme_override_font_sizes/font_size = 61
+text = " SETTINGS "
+
+[node name="clear" type="Button" parent="VBoxContainer" unique_id=263374233]
+custom_minimum_size = Vector2(0, 80)
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+theme = ExtResource("2_dm7d0")
+theme_override_font_sizes/font_size = 46
+text = "CLEAR SAVE"
+
+[node name="Control2" type="Control" parent="." unique_id=1903069163]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_dm7d0")
+
+[node name="ColorRect" type="ColorRect" parent="Control2" unique_id=706357994]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 104.0
+offset_right = -320.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control2" unique_id=1433187448]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 328.0
+offset_top = 112.0
+offset_right = -328.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="Control2" unique_id=1790330075]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 384.0
+offset_top = 504.0
+offset_right = -384.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_dm7d0")
+theme_override_font_sizes/font_size = 33
+text = "CLOS E"
+
+[node name="CheckBox" type="Button" parent="Control2" unique_id=1367370996]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 136.0
+offset_right = 776.0
+offset_bottom = 296.0
+theme = ExtResource("2_dm7d0")
+theme_override_font_sizes/font_size = 38
+toggle_mode = true
+text = "CAMERA SPINNING: ON"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control2" unique_id=641012835]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 296.0
+offset_right = 1064.0
+offset_bottom = 384.0
+theme_override_font_sizes/normal_font_size = 21
+text = "SORRY NOTHING ELSE IM SORRY
+
+UH YOUR HIGHEST TOP SPEED EVER IS "
+scroll_active = false
+
+[node name="score" type="RichTextLabel" parent="Control2" unique_id=161332509]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 392.0
+offset_right = 1064.0
+offset_bottom = 480.0
+theme_override_font_sizes/normal_font_size = 50
+text = "0asdasd"
+
+[node name="Control" type="Control" parent="." unique_id=1407319750]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_74bii")
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=2089366824]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 104.0
+offset_right = -320.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=445224287]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 328.0
+offset_top = 112.0
+offset_right = -328.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect2" unique_id=238018946]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.5
+offset_bottom = -101.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_dm7d0")
+theme_override_font_sizes/normal_font_size = 23
+bbcode_enabled = true
+text = "DEVELOPED BY DD14
+
+MUSIC BY DD14
+
+ART BY DD14
+
+PLAYTESTED BY DD14
+SHADERS FROM GODOTSHADERS.COM
+I KINDA STOPPED WANTING
+TO MAKE THIS LIKE ON DAY 4
+HAVE FUN
+
+I OVERSCOPED NGL
+
+SORRY JUNIPER "
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Control" unique_id=701551707]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 384.0
+offset_top = 504.0
+offset_right = -384.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_dm7d0")
+theme_override_font_sizes/font_size = 33
+text = "CLOS E
+dfdfsdfsdf"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1206143529]
+layer = -1
+
+[node name="Asdasdzxcascas" type="Sprite2D" parent="CanvasLayer" unique_id=1306937899]
+position = Vector2(758, 367.74997)
+scale = Vector2(4.9942193, 2.3287878)
+texture = ExtResource("4_xtge3")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1449360308]
+material = SubResource("ShaderMaterial_0vd41")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1948555748]
+material = SubResource("ShaderMaterial_0vd41")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1552728966]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=1409196477]
+material = SubResource("ShaderMaterial_6er8s")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Node2D" parent="." unique_id=585330688 instance=ExtResource("6_y611j")]
+
+[node name="IGiveUp" type="Sprite2D" parent="." unique_id=109640181]
+modulate = Color(0.23921569, 0.23921569, 0.23921569, 1)
+position = Vector2(648, 384)
+scale = Vector2(1.6445782, 2.0578313)
+texture = ExtResource("7_rdfek")
+script = ExtResource("8_xwgqa")
+
+[node name="Assaczbsdfgjkhnsdfgjhnsdfjkgndfjngosdfjngisdfbgisdfhgyuihsdf" type="AudioStreamPlayer2D" parent="IGiveUp" unique_id=1506750240]
+position = Vector2(559, 499)
+stream = ExtResource("9_ike41")
+autoplay = true
+
+[node name="WhiteKnuckleAttempt" type="AudioStreamPlayer2D" parent="." unique_id=1401640654]
+position = Vector2(656, 376)
+stream = ExtResource("10_e6cji")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/play" to="Control" method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="Control" method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="Control" method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/settings" to="Control2" method="_on_settings_pressed"]
+[connection signal="pressed" from="Control2/Button" to="Control2" method="_on_button_pressed"]
+[connection signal="toggled" from="Control2/CheckBox" to="Control2" method="_on_check_box_toggled"]
+[connection signal="pressed" from="Control/Button" to="Control" method="_on_button_pressed"]

@@ -4,6 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Signalbus.start.connect(start)
+
 	pass # Replace with function body.
 
 
@@ -13,5 +14,10 @@ func _process(delta: float) -> void:
 
 
 func start():
-	$Placeholder.play()
+	var rando = randi_range(1, 2)
+
+	if rando == 1:
+		$Placeholder.play()
+	else:
+		$Finalstage.play()
 	pass

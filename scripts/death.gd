@@ -5,6 +5,19 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	eastereggs()
+	rich.text = "
+	PLAYER DIED
+
+	EARNED " + str(Globals.earnings) + " MONEY
+	
+	WELL ACTUALLY YOU GOT 200 BUT THATS CUS
+	I HAVENT IMPLEMENTED ACTUAL MATH FOR
+	EARNING MONEY
+
+	R TO RESTART
+	"
+
+	Saveloadsys.data["currency"] += 100
 	await get_tree().create_timer(.05).timeout
 	$postprocess/ColorRect2.queue_free()
 	await get_tree().create_timer(.1).timeout
@@ -25,7 +38,7 @@ func _process(delta: float) -> void:
 	pass
 func reveaL():
 	while get_tree():
-		await get_tree().create_timer(.05).timeout
+		await get_tree().create_timer(.02).timeout
 		rich.visible_characters += 1
 	pass
 func flash():

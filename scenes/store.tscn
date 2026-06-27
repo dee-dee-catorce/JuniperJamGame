@@ -2,16 +2,145 @@
 
 [ext_resource type="Script" uid="uid://dho7n3vv0o3pq" path="res://scripts/dialogueHandle.gd" id="1_jmp1n"]
 [ext_resource type="Theme" uid="uid://cxuwds8qlhtpw" path="res://assets/theme/Dialogue.tres" id="2_atuvt"]
-[ext_resource type="Texture2D" uid="uid://dkevh4r61pckj" path="res://assets/sprites/uidijd.png" id="2_codmc"]
+[ext_resource type="Texture2D" uid="uid://3w4qa3ubqvri" path="res://assets/asdasddasdasqdqwqwdqwd.png" id="2_dq3y1"]
+[ext_resource type="Texture2D" uid="uid://cv6nnq2acyfr8" path="res://assets/sprites/exoxaasd.png" id="3_vb4ln"]
+[ext_resource type="AudioStream" uid="uid://gaa2tnv3exda" path="res://assets/sounds/wagh.mp3" id="4_dq3y1"]
+[ext_resource type="Script" uid="uid://cltkk38ufb033" path="res://scripts/button.gd" id="4_gf6f2"]
+[ext_resource type="Texture2D" uid="uid://m8bch7h3n4kw" path="res://assets/sprites/time.png" id="4_tmp5q"]
+[ext_resource type="Texture2D" uid="uid://cqc2ty37dvc5k" path="res://assets/sprites/asasdd.png" id="5_phafb"]
+[ext_resource type="AudioStream" uid="uid://muk8ivut1mi0" path="res://assets/sounds/hurt3 #333922.wav" id="6_5bups"]
+[ext_resource type="Script" uid="uid://b14wvxp3jdexx" path="res://scenes/gamble.gd" id="6_ipyd8"]
+[ext_resource type="AudioStream" uid="uid://c6tpovv2n28ci" path="res://assets/sounds/boop.mp3" id="10_q788m"]
 
-[node name="store" type="Node2D" unique_id=430293882]
-
-[node name="dialogueHandle" type="Node2D" parent="." unique_id=847808461 node_paths=PackedStringArray("rtl", "spr")]
+[node name="store" type="Control" unique_id=1609067098 node_paths=PackedStringArray("rtl", "spr")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_jmp1n")
-rtl = NodePath("RichTextLabel")
-spr = NodePath("rect4/portrait")
+rtl = NodePath("HBoxContainer/ColorRect/dialogueHandle/RichTextLabel")
+spr = NodePath("HBoxContainer/ColorRect/dialogueHandle/rect4/portrait")
 
-[node name="rect" type="ColorRect" parent="dialogueHandle" unique_id=1484440281]
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=1848302858]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=641155095]
+layout_mode = 2
+color = Color(1, 1, 1, 0.2901961)
+
+[node name="Store" type="ColorRect" parent="HBoxContainer/ColorRect" unique_id=1454284875]
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.6625
+offset_left = 64.0
+offset_top = 176.0
+offset_right = 48.0
+offset_bottom = 528.0
+color = Color(0, 0, 0, 1)
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ColorRect/Store" unique_id=658611846]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.4, 0.4)
+offset_transform_visual_only = false
+accessibility_region = true
+columns = 5
+
+[node name="Button" type="Button" parent="HBoxContainer/ColorRect/Store/GridContainer" unique_id=309039591]
+custom_maximum_size = Vector2(500, -1)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_atuvt")
+theme_override_font_sizes/font_size = 45
+text = "cost here"
+icon = ExtResource("3_vb4ln")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Button2" type="Button" parent="HBoxContainer/ColorRect/Store/GridContainer" unique_id=290083556]
+custom_maximum_size = Vector2(500, -1)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_atuvt")
+theme_override_font_sizes/font_size = 45
+text = "cost here"
+icon = ExtResource("4_tmp5q")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Button3" type="Button" parent="HBoxContainer/ColorRect/Store/GridContainer" unique_id=1945445411]
+custom_maximum_size = Vector2(500, -1)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_atuvt")
+theme_override_font_sizes/font_size = 45
+text = "[CLICK]"
+icon = ExtResource("5_phafb")
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Store2" type="ColorRect" parent="HBoxContainer/ColorRect" unique_id=270530557 node_paths=PackedStringArray("asdasd")]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.6625
+offset_left = 64.0
+offset_top = 176.0
+offset_right = 48.0
+offset_bottom = 528.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("6_ipyd8")
+asdasd = NodePath("../Currency")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/ColorRect/Store2" unique_id=609750816]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 496.0
+offset_bottom = 96.0
+theme = ExtResource("2_atuvt")
+text = "ILL MAKE THIS BETTER LAYER"
+fit_content = true
+scroll_active = false
+
+[node name="ask" type="Button" parent="HBoxContainer/ColorRect/Store2" unique_id=1868066287]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06875
+anchor_right = 0.1890625
+offset_left = 44.799984
+offset_top = 192.0
+offset_right = 303.2
+offset_bottom = 320.0
+theme = ExtResource("2_atuvt")
+theme_override_font_sizes/font_size = 18
+text = "GAMBLE BUTTOn"
+
+[node name="dialogueHandle" type="Node2D" parent="HBoxContainer/ColorRect" unique_id=847808461]
+position = Vector2(336, 568)
+
+[node name="rect" type="ColorRect" parent="HBoxContainer/ColorRect/dialogueHandle" unique_id=1484440281]
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 520.0
@@ -19,32 +148,35 @@ offset_bottom = 136.0
 color = Color(1, 1, 1, 0.2901961)
 metadata/_edit_use_anchors_ = true
 
-[node name="rect2" type="ColorRect" parent="dialogueHandle" unique_id=1023696453]
+[node name="rect2" type="ColorRect" parent="HBoxContainer/ColorRect/dialogueHandle" unique_id=1023696453]
 offset_left = 528.0
 offset_top = -8.0
 offset_right = 672.0
 offset_bottom = 136.0
 color = Color(1, 1, 1, 0.2901961)
+metadata/_edit_use_anchors_ = true
 
-[node name="rect3" type="ColorRect" parent="dialogueHandle" unique_id=538411626]
+[node name="rect3" type="ColorRect" parent="HBoxContainer/ColorRect/dialogueHandle" unique_id=538411626]
 offset_right = 512.0
 offset_bottom = 128.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="rect4" type="ColorRect" parent="dialogueHandle" unique_id=438322320]
+[node name="rect4" type="ColorRect" parent="HBoxContainer/ColorRect/dialogueHandle" unique_id=438322320]
 offset_left = 536.0
 offset_right = 664.0
 offset_bottom = 128.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="portrait" type="Sprite2D" parent="dialogueHandle/rect4" unique_id=584327388]
+[node name="portrait" type="Sprite2D" parent="HBoxContainer/ColorRect/dialogueHandle/rect4" unique_id=584327388]
+modulate = Color(0.27940443, 0.27940443, 0.27940443, 1)
 position = Vector2(64, 64)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_codmc")
-hframes = 2
+texture = ExtResource("2_dq3y1")
+hframes = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="dialogueHandle" unique_id=2111999039]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/ColorRect/dialogueHandle" unique_id=2111999039]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 504.0
@@ -54,3 +186,98 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "dadas"
 metadata/_edit_use_anchors_ = true
+
+[node name="store_main" type="Button" parent="HBoxContainer/ColorRect" unique_id=1364648064 node_paths=PackedStringArray("store", "gamble", "dialogue", "currencylabel", "addaasdasxczxc", "sound", "speedb", "timeb")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06875
+anchor_right = 0.1890625
+offset_left = 32.0
+offset_top = 560.0
+offset_right = 54.0
+offset_bottom = 608.0
+theme = ExtResource("2_atuvt")
+theme_override_font_sizes/font_size = 18
+text = "STORE
+
+"
+script = ExtResource("4_gf6f2")
+store = NodePath("../Store")
+gamble = NodePath("../Store2")
+dialogue = NodePath("../../..")
+currencylabel = NodePath("../Currency")
+addaasdasxczxc = NodePath(".")
+sound = NodePath("Boop")
+speedb = NodePath("../Store/GridContainer/Button")
+timeb = NodePath("../Store/GridContainer/Button2")
+
+[node name="Boop" type="AudioStreamPlayer2D" parent="HBoxContainer/ColorRect/store_main" unique_id=838004620]
+position = Vector2(512, -240)
+stream = ExtResource("10_q788m")
+pitch_scale = 1.48
+
+[node name="ask" type="Button" parent="HBoxContainer/ColorRect" unique_id=1248188416]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06875
+anchor_right = 0.1890625
+offset_left = 32.0
+offset_top = 608.0
+offset_right = 54.0
+offset_bottom = 656.0
+theme = ExtResource("2_atuvt")
+theme_override_font_sizes/font_size = 18
+text = "?
+"
+
+[node name="gamble" type="Button" parent="HBoxContainer/ColorRect" unique_id=1105390092]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06875
+anchor_right = 0.1890625
+offset_left = 32.0
+offset_top = 656.0
+offset_right = 54.0
+offset_bottom = 704.0
+theme = ExtResource("2_atuvt")
+theme_override_font_sizes/font_size = 18
+text = "GAMBLE
+"
+
+[node name="Currency" type="RichTextLabel" parent="HBoxContainer/ColorRect" unique_id=478806909]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06875
+anchor_right = 0.20625
+offset_left = 32.0
+offset_top = 504.0
+offset_right = 32.0
+offset_bottom = 552.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_atuvt")
+bbcode_enabled = true
+text = "100$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wagh" type="AudioStreamPlayer2D" parent="." unique_id=854973271]
+position = Vector2(632, 320)
+stream = ExtResource("4_dq3y1")
+max_polyphony = 3
+
+[node name="Wagh2" type="AudioStreamPlayer2D" parent="." unique_id=831841266]
+position = Vector2(632, 320)
+stream = ExtResource("6_5bups")
+volume_db = -8.748
+max_polyphony = 3
+
+[connection signal="pressed" from="HBoxContainer/ColorRect/Store/GridContainer/Button" to="HBoxContainer/ColorRect/store_main" method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/Store/GridContainer/Button2" to="HBoxContainer/ColorRect/store_main" method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/Store/GridContainer/Button3" to="HBoxContainer/ColorRect/store_main" method="_on_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/Store2/ask" to="HBoxContainer/ColorRect/Store2" method="_on_ask_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/store_main" to="." method="_on_store_main_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/store_main" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/store_main" to="HBoxContainer/ColorRect/store_main" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/ask" to="HBoxContainer/ColorRect/store_main" method="_on_ask_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColorRect/gamble" to="HBoxContainer/ColorRect/store_main" method="_on_gamble_pressed"]

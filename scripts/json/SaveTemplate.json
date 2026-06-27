@@ -1,3 +1,7 @@
 {
-	"currency": 0
+	"currency": 0,
+	"currspeed": 0,
+	"currtimeadd": 0,
+	"topspeedalltime": 0.0,
+	"furthestlevelalltime": 0
 }

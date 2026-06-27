@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://byqyhy3dwkb0j"]
+
+[ext_resource type="Script" uid="uid://ba7x0cdryj36e" path="res://scripts/spinningPlatform.gd" id="1_d4jfq"]
+[ext_resource type="Texture2D" uid="uid://c1ytq6dffp31k" path="res://assets/sounds/asdasdzxcascas.png" id="2_d4jfq"]
+[ext_resource type="Script" uid="uid://bv2bc4lt5v7hu" path="res://addons/godot-rapier2d/custom_nodes/rapier_pin_joint_2d.gd" id="3_ckw30"]
+[ext_resource type="Shader" uid="uid://b1qkacr0roq57" path="res://assets/shaders/black hole.gdshader" id="4_4pvrx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vgf2"]
+radius = 816.0392
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vd41"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vd41"]
+shader = ExtResource("4_4pvrx")
+shader_parameter/_ShowDebugColors = false
+shader_parameter/_DistortionStrenght = 0.2
+shader_parameter/_Attenuation = 9.0
+
+[node name="StaticBody2D" type="RigidBody2D" unique_id=1819866956 node_paths=PackedStringArray("pin")]
+script = ExtResource("1_d4jfq")
+speed = 12312.0
+pin = NodePath("StaticBody2D/PinJoint2D")
+massless = true
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2105019002]
+gravity_space_override = 1
+gravity_point = true
+gravity = 500000.0
+linear_damp_space_override = 1
+angular_damp_space_override = 3
+angular_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1934848938]
+shape = SubResource("CircleShape2D_6vgf2")
+
+[node name="Asdsdasdxz" type="Sprite2D" parent="." unique_id=1253448241]
+modulate = Color(1.5265595, 1.5265595, 1.5265595, 1)
+position = Vector2(32.00006, -16)
+scale = Vector2(1.5500966, 1.5500971)
+texture = ExtResource("2_d4jfq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=950935329]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="StaticBody2D" unique_id=1269596207]
+node_a = NodePath("..")
+node_b = NodePath("../..")
+motor_enabled = true
+motor_target_velocity = 0.840376
+script = ExtResource("3_ckw30")
+metadata/_custom_type_script = "uid://bv2bc4lt5v7hu"
+
+[node name="Node2D" type="Node2D" parent="StaticBody2D" unique_id=555835753]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1717123067]
+shape = SubResource("CircleShape2D_0vd41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1423441232]
+shape = SubResource("CircleShape2D_0vd41")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1213096831]
+material = SubResource("ShaderMaterial_0vd41")
+offset_left = -1056.0
+offset_top = -1216.0
+offset_right = 1112.0
+offset_bottom = 1069.1328

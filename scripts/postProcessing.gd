@@ -15,6 +15,7 @@ func _process(_delta: float) -> void:
 
 func timerupd(timer: int):
 	if timer > -1:
+		Globals.dead = false
 		var tween := create_tween()
 		var targetrad = (1.0 / (float(timer) / 8))
 		tween.tween_property(fog.material, "shader_parameter/radius", targetrad, .5)

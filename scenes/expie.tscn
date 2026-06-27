@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ltuq4q75qhu7"]
 
 [ext_resource type="Script" uid="uid://buddv5dxbveq6" path="res://scripts/expie.gd" id="1_4s0ss"]
-[ext_resource type="Texture2D" uid="uid://crmc5yepehsi8" path="res://assets/sprites/expie.png" id="1_ybf76"]
+[ext_resource type="Texture2D" uid="uid://crwc7qrl4xb1r" path="res://assets/sprites/Sprite-0004-Sheet.png" id="2_4s0ss"]
 [ext_resource type="AudioStream" uid="uid://cljrqgbanlwvy" path="res://assets/sounds/crash.mp3" id="2_21sn3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0vd41"]
@@ -15,9 +15,9 @@ script = ExtResource("1_4s0ss")
 
 [node name="Expie" type="Sprite2D" parent="." unique_id=1249606190]
 texture_filter = 1
-position = Vector2(0, -3)
-scale = Vector2(2.2499998, 2.3125)
-texture = ExtResource("1_ybf76")
+position = Vector2(0, 4.7683716e-07)
+scale = Vector2(0.4197203, 0.4313792)
+texture = ExtResource("2_4s0ss")
 hframes = 2
 
 [node name="Crash" type="AudioStreamPlayer2D" parent="." unique_id=1273137628]
@@ -26,9 +26,11 @@ stream = ExtResource("2_21sn3")
 [node name="Area2D" type="Area2D" parent="." unique_id=1330064338]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=138787034]
+scale = Vector2(0.4190639, 0.4190639)
 shape = SubResource("CircleShape2D_0vd41")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1388728922]
+scale = Vector2(0.35106173, 0.35106173)
 shape = SubResource("CircleShape2D_0vd41")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

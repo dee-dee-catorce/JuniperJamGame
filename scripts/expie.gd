@@ -13,9 +13,10 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == self:
+	if body == self or body.name != "player":
 		return
 	if body is RigidBody2D:
+		Signalbus.buttonp(-10)
 		if dead == true:
 			return
 		dead = true

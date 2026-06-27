@@ -5,7 +5,7 @@ extends Node
 @export
 var speed: float = 0
 @export
-var acceleration: float = 1000 + Globals.accelerationUp * 100
+var acceleration: float = 1000
 @export
 var maxspeed: float = 10000 + Globals.speedUpgrade
 @export
@@ -93,7 +93,7 @@ func statephy(delta):
 			if Globals.devMode:
 				print("driving physics")
 				#print(target)
-			var force = direction * (acceleration + Globals.accelerationUp * 100)
+			var force = direction * (acceleration + Saveloadsys.data.get("currspeed", 0) * 100)
 			body.apply_central_force(force * delta * 100)
 			#body.apply_torque(200009)
 			body.apply_torque(difference * body.linear_velocity.length() * 10)
@@ -104,7 +104,7 @@ func statephy(delta):
 			if Globals.devMode:
 				print("backup physics")
 				#print(target)
-			var force = direction * (acceleration + Globals.accelerationUp * 100)
+			var force = direction * (acceleration + Saveloadsys.data.get("currspeed", 0) * 100)
 			body.apply_central_force((-force * delta * 100) / 3)
 			#body.apply_torque(200009)
 			body.apply_torque(difference * body.linear_velocity.length() * 10)

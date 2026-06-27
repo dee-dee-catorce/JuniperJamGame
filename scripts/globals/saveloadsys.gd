@@ -40,7 +40,7 @@ var settings = {}
 
 var template = "res://scripts/json/SaveTemplate.json"
 
-
+var devMode = false
 var savePath = "user://SAVE.json"
 var conPath = "user://CONFIG.json"
 
@@ -48,7 +48,7 @@ func _ready():
 	# Load save file
 	if FileAccess.file_exists(savePath):
 		data = loadjson(savePath)
-		if Globals.devMode:
+		if devMode:
 			newsave()
 			pass
 	else:
@@ -58,7 +58,7 @@ func _ready():
 	# Load settings/config file
 	if FileAccess.file_exists(conPath):
 		settings = loadjson(conPath)
-		if Globals.devMode:
+		if devMode:
 			newConfig()
 			
 	else:
@@ -94,11 +94,11 @@ func loadjson(filepath: String):
 		if parsedresult is Dictionary:
 			return parsedresult
 		else:
-			if Globals.devMode:
+			if devMode:
 				print("Error parsing JSON file: " + filepath)
 			return {}
 	else:
-		if Globals.devMode:
+		if devMode:
 			print("File not found: " + filepath)
 		return {}
 
@@ -112,8 +112,8 @@ func savetodisk(path, dt):
 
 func InitAutosave():
 	while true:
-		await get_tree().create_timer(10.0).timeout
-		if Globals.devMode:
+		await get_tree().create_timer(1.0).timeout
+		if devMode:
 			print("saved")
 		savetodisk(savePath, data)
 		savetodisk(conPath, settings)
